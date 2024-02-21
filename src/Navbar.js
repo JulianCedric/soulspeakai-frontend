@@ -6,11 +6,10 @@ import './App.css';
 
 const Navbar = () => {
   return (
-    <div>
-      <Menu inverted fixed='top' size='large'>
+      <Menu inverted fixed='top' size='medium' >
         <Container>
           <Menu.Menu position='left'>
-            <Menu.Item as='a' header style={{ marginLeft: '-10em' }}>
+            <Menu.Item as='a' header style={{ marginLeft: '-11em' }}>
               <Image
                 size='mini'
                 src={logo}
@@ -22,11 +21,10 @@ const Navbar = () => {
           </Menu.Menu>       
           <Menu.Menu position='right'>
             <Menu.Item as='a'>Sign up</Menu.Item>
-            <Menu.Item as='a' style={{ marginRight: '-9.5em' }}>Log in</Menu.Item>
+            <Menu.Item as='a' style={{ marginRight: '-11em' }}>Log in</Menu.Item>
           </Menu.Menu>
         </Container>
       </Menu>
-    </div>
   );
 };
 
