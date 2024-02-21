@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Header, Button, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import Step1 from './Step1';
 
 const Home = () => {
+    const [activeStep, setActiveStep] = useState(0);
+
     const testStyling = {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',      
     };
+
+    const renderStep1 = () => {
+        setActiveStep(1);
+    };
+
+    const renderStep2 = () => {
+        setActiveStep(2);
+    };
+
 
   return (
     <div style={testStyling}>
@@ -28,9 +40,13 @@ const Home = () => {
             <p className="content-text" style={{ fontSize: '1.33em' }}>
             Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps:
             </p>
-            <Button primary size="huge" className="begin-btn">
+            <Button onClick={renderStep1}primary size="huge" className="begin-btn">
             Begin
             </Button>
+            {activeStep === 1 && (<Step1 renderStep2={renderStep2}/>)}
+            <br/>
+            <br/>
+            <br/>
         </Container>
         <footer style={{ position: 'absolute', bottom: '0', width: '100%', padding: '1em 0', textAlign: 'center', color: 'white' }}>
             &copy; 2024 SoulSpeakai. All rights reserved.
