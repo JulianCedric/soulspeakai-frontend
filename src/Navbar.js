@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, Container, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import logo from './assets/images/ssai-logo.png';
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
         <Menu.Item as='a' header>
           <Image
             size='mini'
-            src='/logo.png' // Replace with your logo path
+            src={logo}
             style={{ marginRight: '1.5em' }}
           />
           Dashboard

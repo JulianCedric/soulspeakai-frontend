@@ -60,7 +60,7 @@ const Home = ({ handleInsight, handleTask, handleTaskCompleted }) => {
                 {activeStep === 0 && (
                     <>
                         <br/><br/><br/><br/><br/><br/><br/>
-                        <Button onClick={renderStep1}primary size="huge" className="begin-btn">
+                        <Button onClick={renderStep1} color='blue' size="Medium" className="begin-btn">
                         Begin
                         </Button>
                     </>
