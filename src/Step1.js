@@ -28,6 +28,6 @@ const Step1 = ({ renderStep2 }) => {
       />
     </Container>
   );
-}
+};
 
 export default Step1;

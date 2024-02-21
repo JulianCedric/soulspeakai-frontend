@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.min.css';
 const Step2 = ({ renderStep3 }) => {
   return (
     <Container text style={{ marginTop: '5em' }}>
-      <Header as='h2' content='Step 2. Pray' textAlign='center' />
+      <Header as='h2' content='Step 2. Pray' textAlign='left' style={{ color: 'white' }}/>
       <p style={{ fontSize: '1.33em', textAlign: 'center', marginTop: '2em' }}>
         Pray until you're calm.
       </p>
@@ -34,6 +34,6 @@ const Step2 = ({ renderStep3 }) => {
       </div>
     </Container>
   );
-}
+};
 
 export default Step2;
