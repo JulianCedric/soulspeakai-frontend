@@ -14,26 +14,14 @@ const Home = () => {
     <div style={testStyling}>
         <Segment inverted textAlign="center" vertical className="full-height" style={{ padding: '1em 0em', backgroundColor: 'black' }}>
         <Container>
-            <Container className="header-nav" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1em' }}>
-            {/* <Header as="h2" inverted>
-                <i className="fas fa-s"></i>
-                Dashboard
-            </Header> */}
-            {/* <div>
-                <Button basic inverted>
-                Sign up
-                </Button>
-                <Button basic inverted>
-                Log in
-                </Button>
-            </div> */}
-            </Container>
-            <Header as="h1" inverted className="main-title" style={{ fontSize: '4em', fontWeight: 'bold', marginBottom: '0.25em', marginTop: '0.25em' }}>
-            SoulSpeakai
-            </Header>
-            <Header as="h2" inverted className="sub-title" style={{ fontSize: '1.7em', fontWeight: 'normal', marginTop: '1.5em', marginBottom: '1.5em' }}>
-            Your very own ai prayer partner.
-            </Header>
+            <div>
+                <h1 className="soulSpeakHeading" style={{ textAlign: 'center', color: 'cornflowerblue', fontSize: '70px' }}>
+                Soul
+                <span style={{ color: '#4169e1' }}>Speak</span><span style={{ color: '#f0f0f0' }}>ai</span>
+                </h1>
+                <p className="soulSpeakTagline" style={{ textAlign: 'center', fontSize: '28px', color: 'rgb(150, 150, 150)' }}>Your very own <span style={{ color: 'rgb(255, 255, 255)' }}>ai</span> prayer partner.</p>
+                <br/><br/>
+            </div>
             <p className="content-text" style={{ fontSize: '1.33em' }}>
             SoulSpeakai is designed to help you turn strong emotions into <strong>right action</strong>.
             </p>

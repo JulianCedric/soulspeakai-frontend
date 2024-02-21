@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <Container style={{ marginTop: '3em' }}>
       <Header as='h1' dividing>
-        Prayer Session
+        My Dashboard
       </Header>
       
       <Table basic='very' celled inverted>
