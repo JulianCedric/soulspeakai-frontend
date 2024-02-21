@@ -8,7 +8,7 @@ const Step1 = ({ renderStep2 }) => {
       <Header as='h2' content='Step 1. Generate Prayer' textAlign='left' style={{ color: 'white' }}/>
       <div style={{ display: 'flex', justifyContent: 'center', margin: '2em 0' }}>
         <Input label="I'm feeling" placeholder='anxious' style={{ marginRight: '0.5em' }} />
-        <Input label='about' placeholder='my project tomorrow' style={{ marginRight: '0.5em' }} />
+        <Input label='about' placeholder='my presentation tomorrow' style={{ marginRight: '0.5em' }} />
         <Button icon='right arrow' content='Next' labelPosition='right' primary />
       </div>
       <p>
@@ -21,7 +21,11 @@ const Step1 = ({ renderStep2 }) => {
         task at hand. "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will
         be with you wherever you go." (Joshua 1:9) In Jesus' name, amen.
       </p>
-      <Button onClick={renderStep2}>></Button>
+      <Button 
+        onClick={renderStep2} 
+        primary 
+        content='Next'
+      />
     </Container>
   );
 }

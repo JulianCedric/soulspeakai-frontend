@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { Container, Header, Button, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
 
-const Home = () => {
+
+const Home = ({ handleInsight }) => {
     const [activeStep, setActiveStep] = useState(0);
 
     const testStyling = {
@@ -19,6 +22,14 @@ const Home = () => {
 
     const renderStep2 = () => {
         setActiveStep(2);
+    };
+
+    const renderStep3 = () => {
+        setActiveStep(3);
+    };
+
+    const renderStep4 = () => {
+        setActiveStep(4);
     };
 
 
@@ -40,10 +51,15 @@ const Home = () => {
             <p className="content-text" style={{ fontSize: '1.33em' }}>
             Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps:
             </p>
-            <Button onClick={renderStep1}primary size="huge" className="begin-btn">
-            Begin
-            </Button>
+            {activeStep === 0 && (
+                <Button onClick={renderStep1}primary size="huge" className="begin-btn">
+                Begin
+                </Button>
+            )}
             {activeStep === 1 && (<Step1 renderStep2={renderStep2}/>)}
+            {activeStep === 2 && (<Step2 renderStep3={renderStep3}/>)}
+            {activeStep === 3 && (<Step3 renderStep4={renderStep4} handleInsight={handleInsight}/>)}
+            {activeStep === 4 && (<Step4 renderStep5={renderStep5}/>)}
             <br/>
             <br/>
             <br/>

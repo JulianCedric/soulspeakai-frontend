@@ -44,6 +44,11 @@ const App = () => {
     }
   };
 
+  const handleInsight = (insight) => {
+    console.log('Insight:', insight);
+    setPrayerSessions({ ...prayerSessions, insight });
+  };
+
   return (
     <div className="App">
       <Navbar />
