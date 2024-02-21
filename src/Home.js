@@ -75,10 +75,10 @@ const Home = ({ handleInsight, handleTask, handleTaskCompleted }) => {
                 <br/>
                 <br/>
             </Container>
-            <footer style={{ position: 'absolute', bottom: '0', width: '100%', padding: '1em 0', textAlign: 'center', color: 'white' }}>
-                &copy; 2024 SoulSpeakai. All rights reserved.
-            </footer>
         </Segment>
+        <footer className='site-footer' style={{ position: 'absolute', bottom: '0', width: '100%', padding: '1em 0', textAlign: 'center', color: 'white' }}>
+            &copy; 2024 SoulSpeakai. All rights reserved.
+        </footer>
     </div>
   );
 };

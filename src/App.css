@@ -47,8 +47,9 @@ html, body {
   background-color: rgb(20, 20, 20);
   min-height: 100vh;
   display: flex;
+  padding-top: 50px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .contentStyle {
@@ -57,8 +58,6 @@ html, body {
   flex-direction: column;
   align-items: center;
 }
-
-/* App.css */
 
 .soulSpeakHeading {
   text-align: center;
@@ -100,4 +99,13 @@ html, body {
 
 .italicTextId {
   font-style: italic;
+}
+
+.site-footer {
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
