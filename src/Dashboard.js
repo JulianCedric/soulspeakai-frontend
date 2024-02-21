@@ -14,7 +14,6 @@ const Dashboard = () => {
       <Header as='h1' dividing>
         My Dashboard
       </Header>
-      
       <Table basic='very' celled inverted>
         <Table.Header>
           <Table.Row>
@@ -24,7 +23,6 @@ const Dashboard = () => {
             <Table.HeaderCell>Right Move Status</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-
         <Table.Body>
           {prayerSessions.map((session, index) => (
             <Table.Row key={index}>

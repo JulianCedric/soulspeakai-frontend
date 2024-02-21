@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
@@ -70,9 +69,9 @@ const App = () => {
     <div className="App">
       <Navbar />
       <Home handleInsight={handleInsight} handleTask={handleTask} handleTaskCompleted={handleTaskCompleted}/>
-      <Dashboard />
-      <Signup handleSignup={handleSignup}/>
-      <Login handleLogin={handleLogin}/>
+      {/* <Dashboard /> */}
+      {/* <Signup handleSignup={handleSignup}/> */}
+      {/* <Login handleLogin={handleLogin}/> */}
     </div>
   );
 };
