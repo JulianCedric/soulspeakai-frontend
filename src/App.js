@@ -103,7 +103,7 @@ const App = () => {
 
   const handleTaskStatus = () => {
     const taskCompleted = 'Complete';
-    setNewPrayerSession({ ...newPrayerSession, taskCompleted });
+    setNewPrayerSession({ ...newPrayerSession, taskStatus: taskCompleted });
   };
 
   const handleCompletePrayerSession = () => {

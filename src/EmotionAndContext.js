@@ -9,18 +9,15 @@ const EmotionAndContext = ({ handleEmotion, handleContext }) => {
     setEmotion(emotion);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleEmotion(emotion);
-  };
-
   const handleContextChange = (context) => {
     setContext(context);
   };
 
-  const handleContextSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    handleContext(context);
+    console.log('target:', e.target.value);
+
+    // handleContext(context);
   };
 
   return (
@@ -34,14 +31,14 @@ const EmotionAndContext = ({ handleEmotion, handleContext }) => {
               placeholder="anxious" 
               width={6} 
               value={emotion}
-              onChange={e => handleEmotionChange(e.target.value)}
+              onChange={handleEmotionChange}
             />
             <p> about </p>
             <Form.Input 
               placeholder="my presentation tomorrow" 
               width={6} 
               value={context}
-              onChange={e => handleContextChange(e.target.value)}
+              onChange={handleContextChange}
             />
             <p> . </p>
             <Form.Field width={1}></Form.Field>
