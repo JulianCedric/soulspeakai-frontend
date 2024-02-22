@@ -1,21 +1,35 @@
 import React, { useState } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({ handleLogin }) => {
+const Login = ({ handleLogin, toggleLogout }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        handleLogin(email, password);
+      e.preventDefault();
+      if (!email || !password) {
+        alert('Please fill out all fields to log in.');
+        return;
+      };
+      const loginSuccess = handleLogin(email, password);
+      if (loginSuccess) {
         setEmail('');
         setPassword('');   
+        toggleLogout();
+        navigate('/dashboard');
+      } else {
+        alert('Invalid email or password');
+        setEmail('');
+        setPassword('');
+      }; 
     };
 
     const handleForgotPassword = (e) => {
-        e.preventDefault();
-        alert("Our password reset is currently in beta and not available yet. Please email us at julian.pormentilla@gmail.com for assistance with your account. We're here to help and appreciate your understanding as we enhance our services.");
+      e.preventDefault();
+      alert("Our password reset is currently in beta and not available yet. Please email us at julian.pormentilla@gmail.com for assistance with your account. We're here to help and appreciate your understanding as we enhance our services.");
     };
 
   return (

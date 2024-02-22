@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const USERS = [
   { 
-    email: 'user1.One@email.com',
+    email: 'user1.one@email.com',
     password: "pass1",
     firstName: "User1",
     lastName: "One"
@@ -61,10 +61,11 @@ const App = () => {
   const handleLogin = (email, password) => {
     const user = users.find(user => user.email === email && user.password === password);
     if (user) {
+      return true;
     } else {
-      alert('Invalid email or password');
-    }
-  };
+      return false;
+    };
+  };  
 
   const toggleLogout = () => {
     setRenderLogout(!renderLogout);
@@ -121,7 +122,7 @@ const App = () => {
           <Route path="/" element={<Home handleBegin={handleBegin} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
           <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited}/>} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} toggleLogout={toggleLogout}/>} />
-          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} toggleLogout={toggleLogout} />} />
         </Routes>
       </Router>
     </div>
