@@ -16,6 +16,7 @@ const IntroText = () => {
                     <span className='white-text'>SoulSpeakai</span> is designed to help you turn strong emotions into <strong className='italic-text'>right action</strong>.
                     </p>
                     <p>
+                    {/* Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps: */}
                     Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps:
                     </p>
                 </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import AccountRecoveryForm from './AccountRecoveryForm';
 
 const Login = ({ handleLogin }) => {
     const [email, setEmail] = useState('');
@@ -15,15 +16,21 @@ const Login = ({ handleLogin }) => {
         setPassword('');   
     };
 
+    const handleForgotPassword = (e) => {
+        e.preventDefault();
+        alert('BETA: This feature is not yet available.');
+    };
+
   return (
     <div className='login-style'>
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 450 }}>
+        <Grid.Column style={{ maxWidth: 350 }}>
           <h2 className='login-header'>Log In</h2>
-          <hr/>
-          <Form size='large' onSubmit={handleSubmit}>
+          <p className='login-subheader'>Welcome back!</p>
+          <Form size='small' onSubmit={handleSubmit}>
             <Segment stacked>
               <Form.Input
+                size='mini'
                 autoFocus
                 fluid
                 icon='user'
@@ -32,8 +39,10 @@ const Login = ({ handleLogin }) => {
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+
               />
               <Form.Input
+                size='mini'
                 fluid
                 icon='lock'
                 iconPosition='left'
@@ -42,16 +51,16 @@ const Login = ({ handleLogin }) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Button classcolor='cornflowerblue' fluid size='large'>
+              <Button color='blue' fluid size='mini'>
                 Log In
               </Button>
             </Segment>
           </Form>
-          <Message>
-            Forgot <a href='#'>password?</a>
+          <Message size='mini'>
+            <a onClick={handleForgotPassword} href='#'>Forgot password?</a>
           </Message>
-          <Message>
-            Don’t have an account? <a href='#'>Sign up</a>
+          <Message size='mini'>
+            Don’t have an account? <a href='/signup'>Sign up</a>
           </Message>
         </Grid.Column>
       </Grid>

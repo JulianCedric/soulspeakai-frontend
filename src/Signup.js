@@ -24,13 +24,13 @@ const Signup = ({ handleSignup }) => {
   return (
     <div className='signup-style'>
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid.Column style={{ maxWidth: 350 }}>
         <h2 className='signup-header'>Sign Up</h2>
         <p className='signup-subheader'>It's quick and easy.</p>
-        <hr/>
         <Form size='large' onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
+              size='mini'
               autoFocus
               fluid
               icon='user'
@@ -41,6 +41,7 @@ const Signup = ({ handleSignup }) => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <Form.Input
+              size='mini'
               fluid
               icon='lock'
               iconPosition='left'
@@ -50,6 +51,7 @@ const Signup = ({ handleSignup }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <Form.Input
+              size='mini'
               fluid
               icon='user'
               iconPosition='left'
@@ -59,19 +61,20 @@ const Signup = ({ handleSignup }) => {
             />
             <Form.Input
               fluid
+              size='mini'
               icon='user'
               iconPosition='left'
               placeholder='Last name'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
-            <Button color='blue' fluid size='large'>
+            <Button color='blue' fluid size='mini'>
               Create Account
             </Button>
           </Segment>
         </Form>
-        <Message>
-          Already have an account? <a href='#'>Log in</a>
+        <Message size='mini'>
+          Already have an account? <a href='/login'>Log in</a>
         </Message>
       </Grid.Column>
     </Grid>

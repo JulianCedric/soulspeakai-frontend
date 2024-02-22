@@ -43,7 +43,7 @@ html, body {
   }
 }
 
-.homeStyle {
+.home-style {
   background-color: rgb(20, 20, 20);
   min-height: 100vh;
   width: 100%;
@@ -53,7 +53,7 @@ html, body {
   align-items: flex-start;
 }
 
-.dashboardStyle {
+.dashboard-style {
   background-color: rgb(20, 20, 20);
   min-height: 100vh;
   width: 100%;
@@ -63,48 +63,48 @@ html, body {
   align-items: flex-start;
 }
 
-.contentStyle {
+.content-style {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.soulSpeakHeading {
+.soul-speak-heading {
   text-align: center;
   color: cornflowerblue;
   font-size: 70px;
 }
 
-.soulSpeakSpan {
+.soul-speak-span {
   color: #4169e1;
 }
 
-.soulSpeakAiSpan {
+.soul-speak-ai-span {
   color: #f0f0f0;
 }
 
-.soulSpeakTagline {
+.soul-speak-ai-tagline {
   text-align: center;
   font-size: 28px;
   color: rgb(150, 150, 150);
 }
 
-.contentText {
+.content-text {
   font-size: 1.25em;
   color: rgb(150, 150, 150)
 }
 
-.whiteText {
+.white-text {
   color: rgb(255, 255, 255);
   font-style: bold;
 }
 
-.italicText {
+.italic-text {
   font-style: italic;
 }
 
-.footerStyle {
+.footer-style {
   position: 'absolute';
   bottom: '0';
   width: '100%';
@@ -145,5 +145,5 @@ html, body {
 
 .login-header {
   color: royalblue; 
-  text-align: left;
+  text-align: center;
 }
