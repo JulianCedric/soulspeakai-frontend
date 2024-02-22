@@ -17,7 +17,7 @@ const Login = ({ handleLogin }) => {
 
     const handleForgotPassword = (e) => {
         e.preventDefault();
-        alert('BETA: This feature is not yet available.');
+        alert("Our password reset is currently in beta and not available yet. Please email us at julian.pormentilla@gmail.com for assistance with your account. We're here to help and appreciate your understanding as we enhance our services.");
     };
 
   return (
