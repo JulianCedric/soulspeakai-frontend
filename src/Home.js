@@ -10,8 +10,13 @@ import Step4 from './Step4';
 import Step5 from './Step5';
 import ClosingMessage from './ClosingMessage';
 
-const Home = ({ handleInsight, handleTask, handleTaskStatus }) => {
+const Home = ({ handleBegin, handleInsight, handleTask, handleTaskStatus, handleCompletePrayerSession }) => {
     const [activeStep, setActiveStep] = useState(0);
+
+    const onBegin = () => {
+        renderStep1();
+
+    };
 
     const beginAgain = () => {
         setActiveStep(0);
@@ -49,7 +54,7 @@ const Home = ({ handleInsight, handleTask, handleTaskStatus }) => {
                 {activeStep === 0 && (
                     <>
                         <br/><br/><br/><br/><br/><br/><br/>
-                        <Button onClick={renderStep1} color='blue' size="Medium" className="begin-btn">
+                        <Button onClick={onBegin} color='blue' size="Medium" className="begin-btn">
                         Begin
                         </Button>
                     </>
@@ -58,7 +63,7 @@ const Home = ({ handleInsight, handleTask, handleTaskStatus }) => {
                 {activeStep === 2 && (<Step2 renderStep3={renderStep3}/>)}
                 {activeStep === 3 && (<Step3 renderStep4={renderStep4} handleInsight={handleInsight}/>)}
                 {activeStep === 4 && (<Step4 renderStep5={renderStep5} handleTask={handleTask}/>)}
-                {activeStep === 5 && (<Step5 renderClosingMessage={renderClosingMessage} handleTaskStatus={handleTaskStatus}/>)}
+                {activeStep === 5 && (<Step5 renderClosingMessage={renderClosingMessage} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession}/>)}
                 {activeStep === 6 && (<ClosingMessage beginAgain={beginAgain}/>)}
                 <br/>
                 <br/>

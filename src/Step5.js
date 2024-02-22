@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Header, Button, Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-const Step5 = ({ renderClosingMessage, handleTaskStatus }) => {
+const Step5 = ({ renderClosingMessage, handleTaskStatus, handleCompletePrayerSession }) => {
   const handleDoItNow = () => {
     handleTaskStatus();
     alert("Task marked 'Complete' in Dashboard.");
@@ -10,6 +10,11 @@ const Step5 = ({ renderClosingMessage, handleTaskStatus }) => {
 
   const handleScheduleLater = () => {
     alert("Task marked 'Incomplete' in Dashboard.");
+  };
+
+  const handleComplete = () => {
+    handleCompletePrayerSession();
+    renderClosingMessage();
   };
 
   return (
@@ -33,7 +38,7 @@ const Step5 = ({ renderClosingMessage, handleTaskStatus }) => {
           content='Complete Prayer Session' 
           primary 
           size='large'
-          onClick={renderClosingMessage} 
+          onClick={handleComplete} 
         />
       </div>
     </Container>
