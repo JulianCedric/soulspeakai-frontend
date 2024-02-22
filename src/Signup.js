@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import { useNavigate } from 'react-router-dom';
 
-const Signup = ({ handleSignup }) => {
+const Signup = ({ handleSignup, toggleLogout }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();   
+        if (!email.trim() || !password.trim() || !firstName.trim() || !lastName.trim()) {
+          alert("Please fill out all fields to create an account.");
+          return;
+        };
         handleSignup(email, password, firstName, lastName);
         setEmail('');
         setPassword('');
         setFirstName('');
         setLastName('');
+        toggleLogout();
+        navigate('/');
     };
 
   return (
@@ -64,7 +72,7 @@ const Signup = ({ handleSignup }) => {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
-            <Button color='blue' fluid size='mini'>
+            <Button type='submit' color='blue' fluid size='mini'>
               Create Account
             </Button>
           </Segment>

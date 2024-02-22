@@ -32,8 +32,8 @@ const Step5 = ({ renderClosingMessage, handleTaskStatus, handleCompletePrayerSes
           <Button content='Do It Now' primary onClick={handleDoItNow} />
         </Grid.Column>
         <Grid.Column textAlign='center'>
-          <p>Need to schedule your task for later?</p>
-          <Button content='Schedule It Later' primary onClick={handleScheduleLater} />
+          <p>Need to save your task for later?</p>
+          <Button content='Save for Later' primary onClick={handleScheduleLater} />
         </Grid.Column>
       </Grid>
       <div style={{ textAlign: 'center', marginTop: '2em' }}>

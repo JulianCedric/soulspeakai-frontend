@@ -5,7 +5,9 @@ import './App.css';
 import logo from './assets/images/ssai-logo.png';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ renderLogout }) => {
+  console.log('renderLogout:', renderLogout);
+
   return (
       <Menu inverted fixed='top' size='medium' >
         <Container>
@@ -20,10 +22,17 @@ const Navbar = () => {
               Dashboard
             </Menu.Item>   
           </Menu.Menu>       
-          <Menu.Menu position='right'>
-            <Menu.Item as={Link} to='/signup'>Sign up</Menu.Item>
-            <Menu.Item as={Link} to='/login' style={{ marginRight: '-11em' }}>Log in</Menu.Item>
+          
+          {!renderLogout ? (
+            <Menu.Menu position='right'>
+              <Menu.Item as={Link} to='/signup'>Sign up</Menu.Item>
+              <Menu.Item as={Link} to='/login' style={{ marginRight: '-11em' }}>Log in</Menu.Item>
           </Menu.Menu>
+          ) : (
+            <Menu.Menu position='right'>
+              <Menu.Item as={Link} to='/signup' onClick={renderLogout}>Log out</Menu.Item>
+            </Menu.Menu>
+          )}
         </Container>
       </Menu>
   );

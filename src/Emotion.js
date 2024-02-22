@@ -10,7 +10,7 @@ const Emotion = ({ handleEmotion }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-if (!emotion.trim()) {
+    if (!emotion.trim()) {
       alert("Please fill in this field.");
       return;
     };

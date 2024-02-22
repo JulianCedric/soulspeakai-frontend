@@ -31,6 +31,7 @@ const PRAYERSESSIONS = [
 
 const App = () => {
   const [users, setUsers] = useState(USERS);
+  const [renderLogout, setRenderLogout] = useState(false);
   const [prayerSessions, setPrayerSessions] = useState(PRAYERSESSIONS);
   const [newPrayerSession, setNewPrayerSession] = useState({
     emotion: '',
@@ -49,6 +50,7 @@ const App = () => {
   const year = date.getFullYear();
   const formattedDate = `${monthNames[monthIndex]} ${day}, ${year}`;
 
+  console.log('users:', users);
   console.log('prayerSessions:', prayerSessions);
   console.log('newPrayerSession:', newPrayerSession);
 
@@ -62,6 +64,10 @@ const App = () => {
     } else {
       alert('Invalid email or password');
     }
+  };
+
+  const toggleLogout = () => {
+    setRenderLogout(!renderLogout);
   };
 
   const handleBegin = () => {
@@ -110,11 +116,11 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Navbar renderLogout={renderLogout}/>
         <Routes>
           <Route path="/" element={<Home handleBegin={handleBegin} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
           <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited}/>} />            
-          <Route path="/signup" element={<Signup handleSignup={handleSignup} />} />
+          <Route path="/signup" element={<Signup handleSignup={handleSignup} toggleLogout={toggleLogout}/>} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         </Routes>
       </Router>
