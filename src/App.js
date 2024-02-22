@@ -59,6 +59,8 @@ const App = () => {
   console.log('prayerSessions.taskStatus:', prayerSessions.taskStatus);
   console.log('prayerSessions.created:', prayerSessions.created);
   console.log('prayerSessions.lastVisited:', prayerSessions.lastVisited);
+  console.log('newPrayerSession:', newPrayerSession);
+  console.log('formattedDate:', formattedDate);
 
   const handleSignup = (email, password, firstName, lastName) => {
     setUsers([...users, { email, password, firstName, lastName }]);
@@ -75,10 +77,12 @@ const App = () => {
   };
 
   const handleBegin = () => {
-    setNewPrayerSession({ ...newPrayerSession, created: formattedDate });
+    const currentDate = formattedDate;
+    setNewPrayerSession({ ...newPrayerSession, created: currentDate });
   };
 
   const handleEmotion = (emotion) => {
+    console.log('handleEmotion:', emotion);
     setNewPrayerSession({ ...newPrayerSession, emotion });
   };
 

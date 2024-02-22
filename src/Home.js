@@ -15,7 +15,7 @@ const Home = ({ handleBegin, handleEmotion, handleContext, handleGeneratedPrayer
 
     const onBegin = () => {
         renderStep1();
-
+        handleBegin();
     };
 
     const beginAgain = () => {
@@ -59,7 +59,7 @@ const Home = ({ handleBegin, handleEmotion, handleContext, handleGeneratedPrayer
                         </Button>
                     </>
                 )}
-                {activeStep === 1 && (<Step1 renderStep2={renderStep2} handleEmotion={handleEmotion}/>)}
+                {activeStep === 1 && (<Step1 renderStep2={renderStep2} handleEmotion={handleEmotion} handleContext={handleContext}/>)}
                 {activeStep === 2 && (<Step2 renderStep3={renderStep3}/>)}
                 {activeStep === 3 && (<Step3 renderStep4={renderStep4} handleInsight={handleInsight}/>)}
                 {activeStep === 4 && (<Step4 renderStep5={renderStep5} handleTask={handleTask}/>)}

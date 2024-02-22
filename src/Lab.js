@@ -1,64 +1,47 @@
-import React from 'react'
-import {
-  ModalHeader,
-  ModalContent,
-  ModalActions,
-  Button,
-  Modal,
-} from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Button, Form, Grid } from 'semantic-ui-react';
 
-function exampleReducer(state, action) {
-  switch (action.type) {
-    case 'OPEN_MODAL':
-      return { open: true, dimmer: action.dimmer }
-    case 'CLOSE_MODAL':
-      return { open: false }
-    default:
-      throw new Error()
-  }
-}
+const EmotionAndContext = ({ handleEmotion, handleContext }) => {
+  const [emotion, setEmotion] = useState('');
+  const [context, setContext] = useState('');
 
-function ModalExampleDimmer() {
-  const [state, dispatch] = React.useReducer(exampleReducer, {
-    open: false,
-    dimmer: undefined,
-  })
-  const { open, dimmer } = state
+  const handleEmotionChange = (value) => {
+    setEmotion(value);
+  };
+
+  const handleContextChange = (value) => {
+    setContext(value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    handleEmotion(emotion);
+    handleContext(context);
+  };
 
   return (
-    <div>
-      <Button onClick={() => dispatch({ type: 'OPEN_MODAL' })}>Default</Button>
-      <Button
-        onClick={() => dispatch({ type: 'OPEN_MODAL', dimmer: 'inverted' })}
-      >
-        Inverted
-      </Button>
-      <Button
-        onClick={() => dispatch({ type: 'OPEN_MODAL', dimmer: 'blurring' })}
-      >
-        Blurring
-      </Button>
-      <Modal
-        dimmer={dimmer}
-        open={open}
-        onClose={() => dispatch({ type: 'CLOSE_MODAL' })}
-      >
-        <ModalHeader>Use Google's location service?</ModalHeader>
-        <ModalContent>
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
-        </ModalContent>
-        <ModalActions>
-          <Button negative onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
-            Disagree
-          </Button>
-          <Button positive onClick={() => dispatch({ type: 'CLOSE_MODAL' })}>
-            Agree
-          </Button>
-        </ModalActions>
-      </Modal>
-    </div>
-  )
-}
+    <Grid textAlign="center" verticalAlign="middle">
+      <Grid.Column>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Input 
+              placeholder="anxious" 
+              width={6} 
+              value={emotion}
+              onChange={e => handleEmotionChange(e.target.value)}
+            />
+            <Form.Input 
+              placeholder="my presentation tomorrow" 
+              width={6} 
+              value={context}
+              onChange={e => handleContextChange(e.target.value)}
+            />
+          </Form.Group>
+          <Button type="submit" primary>Next</Button>
+        </Form>
+      </Grid.Column>
+    </Grid>
+  );
+};
 
-export default ModalExampleDimmer;
+export default EmotionAndContext;

@@ -4,46 +4,41 @@ import { Button, Form, Grid } from 'semantic-ui-react';
 const EmotionAndContext = ({ handleEmotion, handleContext }) => {
   const [emotion, setEmotion] = useState('');
   const [context, setContext] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleEmotionChange = (emotion) => {
-    setEmotion(emotion);
-  };
-
-  const handleContextChange = (context) => {
-    setContext(context);
-  };
-
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('target:', e.target.value);
-
-    // handleContext(context);
+    if (!emotion.trim() || !context.trim()) {
+      alert("Please fill in both fields.");
+      return;
+    }
+    setIsSubmitting(true);
+    handleEmotion(emotion);
+    handleContext(context);
+    setIsSubmitting(false);
   };
 
   return (
-    <Grid textAlign="center" verticalAlign="middle">
-      <Grid.Column>
+    <Grid textAlign="center" verticalAlign="middle" style={{ height: '100vh' }}>
+      <Grid.Column style={{ maxWidth: 450 }}>
         <Form onSubmit={handleSubmit}>
-          <Form.Group inline>
-            <Form.Field width={1}></Form.Field>
-            <p> I'm feeling </p>
+          <Form.Field>
+            <label>I'm feeling</label>
             <Form.Input 
               placeholder="anxious" 
-              width={6} 
               value={emotion}
-              onChange={handleEmotionChange}
+              onChange={(e) => setEmotion(e.target.value)}
             />
-            <p> about </p>
+          </Form.Field>
+          <Form.Field>
+            <label>about</label>
             <Form.Input 
               placeholder="my presentation tomorrow" 
-              width={6} 
               value={context}
-              onChange={handleContextChange}
+              onChange={(e) => setContext(e.target.value)}
             />
-            <p> . </p>
-            <Form.Field width={1}></Form.Field>
-          </Form.Group>
-          <Button onClick={handleEmotion} primary>Next</Button>
+          </Form.Field>
+          <Button type='submit' primary loading={isSubmitting}>Next</Button>
         </Form>
       </Grid.Column>
     </Grid>
