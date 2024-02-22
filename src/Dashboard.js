@@ -32,8 +32,8 @@ const Dashboard = ({ users, prayerSessions }) => {
             {prayerSessions.map((session, index) => (
               <Table.Row key={index}>
                 <Table.Cell>I'm feeling {session.emotion} about {session.context}.</Table.Cell>
-                {/* <Table.Cell>{session.created}</Table.Cell> */}
-                {/* <Table.Cell>{session.lastVisited}</Table.Cell> */}
+                <Table.Cell>...</Table.Cell>
+                <Table.Cell>...</Table.Cell>
                 <Table.Cell>{session.taskStatus}</Table.Cell>
               </Table.Row>
             ))}

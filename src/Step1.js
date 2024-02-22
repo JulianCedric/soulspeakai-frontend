@@ -6,11 +6,11 @@ const Step1 = ({ renderStep2 }) => {
   return (
     <Container text style={{ marginTop: '5em' }}>
       <Header as='h2' content='Step 1. Generate Prayer' textAlign='left' style={{ color: 'white' }}/>
-      <div style={{ display: 'flex', justifyContent: 'center', margin: '2em 0' }}>
-        <Input label="I'm feeling" placeholder='anxious' style={{ marginRight: '0.5em' }} />
-        <Input label='about' placeholder='my presentation tomorrow' style={{ marginRight: '0.5em' }} />
-        <Button icon='right arrow' content='Next' labelPosition='right' primary />
-      </div>
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '2em 0' }}>
+          <Input label="I'm feeling" placeholder='anxious' style={{ marginRight: '0.5em' }} />
+          <Input label='about' placeholder='my presentation tomorrow' style={{ marginRight: '0.5em' }} />
+          <Button icon='right arrow' content='Next' labelPosition='right' primary />
+        </div>
       <p>
         Lord, thank You for Your constant presence and guidance in my life. As I prepare for my project tomorrow,
         I seek Your wisdom and strength to face any challenges that may arise. Help me to trust in Your plans for me,
