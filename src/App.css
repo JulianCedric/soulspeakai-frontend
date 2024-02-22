@@ -121,3 +121,13 @@ html, body {
   bottom: 0;
   width: 100%;
 }
+
+.signup-style {
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+
+.signup-subheader {
+  color: white;
+  text-align: left;
+}

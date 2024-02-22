@@ -30,6 +30,9 @@ const App = () => {
   const [prayerSessions, setPrayerSessions] = useState(PRAYERSESSIONS);
   console.log('users:', users);
   console.log('prayerSessions:', prayerSessions);
+  console.log('prayerSessions.emotion:', prayerSessions.emotion);
+  console.log('prayerSessions.context:', prayerSessions.context);
+  console.log('prayerSessions.generatedPrayer:', prayerSessions.generatedPrayer);
   console.log('prayerSessions.insight:', prayerSessions.insight);
   console.log('prayerSessions.task:', prayerSessions.task);
   console.log('prayerSessions.taskCompleted:', prayerSessions.taskCompleted);

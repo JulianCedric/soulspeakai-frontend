@@ -22,12 +22,14 @@ const Signup = ({ handleSignup }) => {
     };
 
   return (
+    <div className='signup-style'>
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
+        <Header as='h2' color='blue' textAlign='left'>
           Sign Up
-          <Header.Subheader>It's quick and easy.</Header.Subheader>
         </Header>
+        <p className='signup-subheader'>It's quick and easy.</p>
+        <hr></hr>
         <Form size='large' onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
@@ -65,7 +67,7 @@ const Signup = ({ handleSignup }) => {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
-            <Button color='teal' fluid size='large'>
+            <Button color='blue' fluid size='large'>
               Create Account
             </Button>
           </Segment>
@@ -75,6 +77,7 @@ const Signup = ({ handleSignup }) => {
         </Message>
       </Grid.Column>
     </Grid>
+    </div>
   );
 };
 
