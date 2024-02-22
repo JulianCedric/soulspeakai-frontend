@@ -4,11 +4,14 @@ import 'semantic-ui-css/semantic.min.css';
 
 const Step5 = ({ renderClosingMessage, handleTaskStatus, handleCompletePrayerSession }) => {
   const handleDoItNow = () => {
-    handleTaskStatus();
+    const taskStatus = 'Complete';
+    handleTaskStatus(taskStatus);
     alert("Task marked 'Complete' in Dashboard.");
   };
 
   const handleScheduleLater = () => {
+    const taskStatus = 'Incomplete';
+    handleTaskStatus(taskStatus);
     alert("Task marked 'Incomplete' in Dashboard.");
   };
 

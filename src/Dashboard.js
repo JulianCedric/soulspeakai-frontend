@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Table, Header, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import './App.css';
 
-const Dashboard = ({ users, prayerSessions }) => {
+const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
+  
   return (
     <div className='dashboard-style'>
       <Container>
@@ -22,7 +24,7 @@ const Dashboard = ({ users, prayerSessions }) => {
           <Table.Body>
             {prayerSessions.map((session, index) => (
               <Table.Row key={index}>
-                <Table.Cell>I'm feeling {session.emotion} about {session.context}.</Table.Cell>
+                <Table.Cell className='cornflowerblue-text' onClick={(key) => handleLastVisited(key)}>I'm feeling {session.emotion} about {session.context}.</Table.Cell>
                 <Table.Cell>{session.created}</Table.Cell>
                 <Table.Cell>{session.lastVisited}</Table.Cell>
                 <Table.Cell>{session.taskStatus}</Table.Cell>

@@ -20,12 +20,12 @@ const PRAYERSESSIONS = [
   {
   emotion: 'anxious',
   context: 'my presentation tomorrow',
-  generatedPrayer: 'Lord, thank You for Your constant presence and guidance in my life. As I prepare for my project tomorrow, I seek Your wisdom and strength to face any challenges that may arise. Help me to trust in Your plans for me, knowing that You work all things together for my good. "For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future." (Jeremiah 29:11) Grant me the courage to step out in faith and not be discouraged, for "I can do all things through Christ who strengthens me." (Philippians 4:13) May Your peace that surpasses all understanding guard my heart and mind, enabling me to focus on the task at hand. "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go." (Joshua 1:9) In Jesus’ name, amen.',
+  prayer: 'Lord, thank You for Your constant presence and guidance in my life. As I prepare for my project tomorrow, I seek Your wisdom and strength to face any challenges that may arise. Help me to trust in Your plans for me, knowing that You work all things together for my good. "For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future." (Jeremiah 29:11) Grant me the courage to step out in faith and not be discouraged, for "I can do all things through Christ who strengthens me." (Philippians 4:13) May Your peace that surpasses all understanding guard my heart and mind, enabling me to focus on the task at hand. "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go." (Joshua 1:9) In Jesus’ name, amen.',
   insight: 'Focus on preparing one section at a time.',
   task: 'Write first draft of only the intro before noon.',
   taskStatus: 'Incomplete',
   created: 'February 22, 2024',
-  lastVisited: null
+  lastVisited: 'February 22, 2024'
   }
 ];
 
@@ -35,12 +35,12 @@ const App = () => {
   const [newPrayerSession, setNewPrayerSession] = useState({
     emotion: '',
     context: '',
-    generatedPrayer: '',
+    prayer: '',
     insight: '',
     task: '',
     taskStatus: '',
-    created: null,
-    lastVisited: null
+    created: '',
+    lastVisited: ''
   });
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const date = new Date();
@@ -48,6 +48,9 @@ const App = () => {
   const monthIndex = date.getMonth();
   const year = date.getFullYear();
   const formattedDate = `${monthNames[monthIndex]} ${day}, ${year}`;
+
+  console.log('prayerSessions:', prayerSessions);
+  console.log('newPrayerSession:', newPrayerSession);
 
   const handleSignup = (email, password, firstName, lastName) => {
     setUsers([...users, { email, password, firstName, lastName }]);
@@ -66,16 +69,24 @@ const App = () => {
     setNewPrayerSession({ ...newPrayerSession, created: currentDate });
   };
 
+  const handleLastVisited = () => {
+    const currentDate = formattedDate;
+    setNewPrayerSession({ ...newPrayerSession, lastVisited: currentDate });
+  };
+
   const handleEmotion = (emotion) => {
-    setNewPrayerSession({ ...newPrayerSession, emotion });
+    const newEmotion = emotion;
+    setNewPrayerSession({ ...newPrayerSession, emotion: newEmotion });
   };
 
   const handleContext = (context) => {
-    setNewPrayerSession({ ...newPrayerSession, context });
+    const newContext = context;
+    setNewPrayerSession({ ...newPrayerSession, context: newContext });
   };
 
-  const handleGeneratedPrayer = (generatedPrayer) => {
-    setNewPrayerSession({ ...newPrayerSession, generatedPrayer });
+  const handlePrayer = (prayer) => {
+    const newPrayer = prayer;
+    setNewPrayerSession({ ...newPrayerSession, prayer: newPrayer });
   };
 
   const handleInsight = (insight) => {
@@ -87,13 +98,12 @@ const App = () => {
     setNewPrayerSession({ ...newPrayerSession, task });
   };
 
-  const handleTaskStatus = () => {
-    const taskCompleted = 'Complete';
-    setNewPrayerSession({ ...newPrayerSession, taskStatus: taskCompleted });
+  const handleTaskStatus = (status) => {
+    console.log('status:', status);
+    setNewPrayerSession({ ...newPrayerSession, taskStatus: status });
   };
 
   const handleCompletePrayerSession = () => {
-    setNewPrayerSession({ ...newPrayerSession, lastVisited: formattedDate });
     setPrayerSessions([...prayerSessions, newPrayerSession]);
   };
 
@@ -102,8 +112,8 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home handleBegin={handleBegin} handleEmotion={handleEmotion} handleContext={handleContext} handleGeneratedPrayer={handleGeneratedPrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
-          <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} />} />            
+          <Route path="/" element={<Home handleBegin={handleBegin} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
+          <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited}/>} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         </Routes>

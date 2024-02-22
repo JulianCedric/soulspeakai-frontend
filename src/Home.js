@@ -10,7 +10,7 @@ import Step4 from './Step4';
 import Step5 from './Step5';
 import ClosingMessage from './ClosingMessage';
 
-const Home = ({ handleBegin, handleEmotion, handleContext, handleGeneratedPrayer, handleInsight, handleTask, handleTaskStatus, handleCompletePrayerSession }) => {
+const Home = ({ handleBegin, handleEmotion, handleContext, handlePrayer, handleInsight, handleTask, handleTaskStatus, handleCompletePrayerSession }) => {
     const [activeStep, setActiveStep] = useState(0);
 
     const onBegin = () => {
@@ -59,7 +59,7 @@ const Home = ({ handleBegin, handleEmotion, handleContext, handleGeneratedPrayer
                         </Button>
                     </>
                 )}
-                {activeStep === 1 && (<Step1 renderStep2={renderStep2} handleEmotion={handleEmotion} handleContext={handleContext}/>)}
+                {activeStep === 1 && (<Step1 renderStep2={renderStep2} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer}/>)}
                 {activeStep === 2 && (<Step2 renderStep3={renderStep3}/>)}
                 {activeStep === 3 && (<Step3 renderStep4={renderStep4} handleInsight={handleInsight}/>)}
                 {activeStep === 4 && (<Step4 renderStep5={renderStep5} handleTask={handleTask}/>)}

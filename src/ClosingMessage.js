@@ -1,8 +1,11 @@
 import React from 'react';
 import { Container, Header, Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import { useNavigate } from 'react-router-dom';
 
 const ClosingMessage = ({ beginAgain }) => {
+  const navigate = useNavigate();
+
   return (
     <Container text style={{ marginTop: '5em' }}>
       <Header as='h1' content='Well Done!' textAlign='center' style={{ color: 'white' }}/>
@@ -34,6 +37,13 @@ const ClosingMessage = ({ beginAgain }) => {
           size='large' 
           content='Start New Prayer Session' 
           onClick={beginAgain}
+        />
+        <Button 
+          primary 
+          size='large' 
+          content='Go to Dashboard' 
+          style={{ marginLeft: '1em' }}
+          onClick={() => navigate('/dashboard')}
         />
       </div>
     </Container>

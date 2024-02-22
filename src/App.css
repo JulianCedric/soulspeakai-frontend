@@ -147,3 +147,8 @@ html, body {
   color: royalblue; 
   text-align: center;
 }
+
+.cornflowerblue-text {
+  color: cornflowerblue;
+  font-weight: bold;
+}
