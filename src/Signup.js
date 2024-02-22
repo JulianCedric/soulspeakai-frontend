@@ -9,11 +9,7 @@ const Signup = ({ handleSignup }) => {
     const [lastName, setLastName] = useState('');
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Email:', email);
-        console.log('Password:', password);
-        console.log('First Name:', firstName);
-        console.log('Last Name:', lastName);   
+        e.preventDefault();   
         handleSignup(email, password, firstName, lastName);
         setEmail('');
         setPassword('');

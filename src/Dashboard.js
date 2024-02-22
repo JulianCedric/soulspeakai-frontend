@@ -3,17 +3,6 @@ import { Container, Table, Header, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 const Dashboard = ({ users, prayerSessions }) => {
-  console.log('users:', users);
-  console.log('prayerSessions:', prayerSessions);
-  console.log('prayerSessions.emotion:', prayerSessions.emotion);
-  console.log('prayerSessions.context:', prayerSessions.context);
-  console.log('prayerSessions.generatedPrayer:', prayerSessions.generatedPrayer);
-  console.log('prayerSessions.insight:', prayerSessions.insight);
-  console.log('prayerSessions.task:', prayerSessions.task);
-  console.log('prayerSessions.taskStatus:', prayerSessions.taskStatus);
-  console.log('prayerSessions.created:', prayerSessions.created);
-  console.log('prayerSessions.lastVisited:', prayerSessions.lastVisited);
-
   return (
     <div className='dashboard-style'>
       <Container>

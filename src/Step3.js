@@ -7,7 +7,6 @@ const Step3 = ({ renderStep4, handleInsight }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Insight:', insight);
     handleInsight(insight);
     setInsight('');
   };

@@ -49,19 +49,6 @@ const App = () => {
   const year = date.getFullYear();
   const formattedDate = `${monthNames[monthIndex]} ${day}, ${year}`;
 
-  console.log('users:', users);
-  console.log('prayerSessions:', prayerSessions);
-  console.log('prayerSessions.emotion:', prayerSessions.emotion);
-  console.log('prayerSessions.context:', prayerSessions.context);
-  console.log('prayerSessions.generatedPrayer:', prayerSessions.generatedPrayer);
-  console.log('prayerSessions.insight:', prayerSessions.insight);
-  console.log('prayerSessions.task:', prayerSessions.task);
-  console.log('prayerSessions.taskStatus:', prayerSessions.taskStatus);
-  console.log('prayerSessions.created:', prayerSessions.created);
-  console.log('prayerSessions.lastVisited:', prayerSessions.lastVisited);
-  console.log('newPrayerSession:', newPrayerSession);
-  console.log('formattedDate:', formattedDate);
-
   const handleSignup = (email, password, firstName, lastName) => {
     setUsers([...users, { email, password, firstName, lastName }]);
   };
@@ -69,9 +56,7 @@ const App = () => {
   const handleLogin = (email, password) => {
     const user = users.find(user => user.email === email && user.password === password);
     if (user) {
-      console.log('Logged in:', user);
     } else {
-      console.log('Invalid email or password');
       alert('Invalid email or password');
     }
   };
@@ -82,7 +67,6 @@ const App = () => {
   };
 
   const handleEmotion = (emotion) => {
-    console.log('handleEmotion:', emotion);
     setNewPrayerSession({ ...newPrayerSession, emotion });
   };
 
@@ -95,13 +79,11 @@ const App = () => {
   };
 
   const handleInsight = (insight) => {
-    console.log('Insight:', insight);
     const newInsight = insight;
     setNewPrayerSession({ ...newPrayerSession, insight });
   };
 
   const handleTask = (task) => {
-    console.log('Task:', task);
     setNewPrayerSession({ ...newPrayerSession, task });
   };
 

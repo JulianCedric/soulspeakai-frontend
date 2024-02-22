@@ -7,7 +7,6 @@ const Step4 = ({ renderStep5, handleTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Task:', task);
     handleTask(task);
     setTask('');
   };
