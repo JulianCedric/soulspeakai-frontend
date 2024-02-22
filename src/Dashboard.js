@@ -12,7 +12,7 @@ const Dashboard = ({  }) => {
   // console.log('prayerSessions:', prayerSessions);
 
   return (
-    <div className='dashboardStyle'>
+    <div className='dashboard-style'>
       <Container>
         <Header as='h1' dividing style={{ color: 'white' }}>
           My Dashboard

@@ -42,9 +42,9 @@ const Home = ({ handleInsight, handleTask, handleTaskCompleted }) => {
     };
 
   return (
-    <div className='homeStyle'>
+    <div className='home-style'>
         <Segment inverted textAlign="center" vertical className="full-height" style={{ padding: '1em 0em', backgroundColor: 'rgb(20, 20, 20' }}>
-            <Container className='contentStyle'>
+            <Container className='content-style'>
                 <IntroText />
                 {activeStep === 0 && (
                     <>

@@ -5,15 +5,15 @@ const IntroText = () => {
         <>
             <div>
                 <div>
-                    <h1 className="soulSpeakHeading">
-                        Soul<span className="soulSpeakSpan">Speak</span><span className="soulSpeakAiSpan">ai</span>
+                    <h1 className="soul-speak-heading">
+                        Soul<span className="soul-speak-span">Speak</span><span className="soul-speak-ai-span">ai</span>
                     </h1>
-                    <p className="soulSpeakTagline">Your very own <span className="whiteText">ai</span> prayer partner.</p>
+                    <p className="soul-speak-tagline">Your very own <span className="white-text">ai</span> prayer partner.</p>
                     <br/><br/>
                 </div>
-                <div className="contentText">
+                <div className="content-text">
                     <p>
-                    <span className='whiteText'>SoulSpeakai</span> is designed to help you turn strong emotions into <strong className='italicText'>right action</strong>.
+                    <span className='white-text'>SoulSpeakai</span> is designed to help you turn strong emotions into <strong className='italic-text'>right action</strong>.
                     </p>
                     <p>
                     Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps:

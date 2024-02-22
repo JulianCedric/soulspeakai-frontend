@@ -25,11 +25,9 @@ const Signup = ({ handleSignup }) => {
     <div className='signup-style'>
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='blue' textAlign='left'>
-          Sign Up
-        </Header>
+        <h2 className='signup-header'>Sign Up</h2>
         <p className='signup-subheader'>It's quick and easy.</p>
-        <hr></hr>
+        <hr/>
         <Form size='large' onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input

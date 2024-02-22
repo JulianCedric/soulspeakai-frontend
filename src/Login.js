@@ -16,45 +16,46 @@ const Login = ({ handleLogin }) => {
     };
 
   return (
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
-          Log In
-        </Header>
-        <Form size='large' onSubmit={handleSubmit}>
-          <Segment stacked>
-            <Form.Input
-              autoFocus
-              fluid
-              icon='user'
-              iconPosition='left'
-              placeholder='Email'
-              type='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Form.Input
-              fluid
-              icon='lock'
-              iconPosition='left'
-              placeholder='Password'
-              type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button color='teal' fluid size='large'>
-              Log In
-            </Button>
-          </Segment>
-        </Form>
-        <Message>
-          Forgot <a href='#'>password?</a>
-        </Message>
-        <Message>
-          Don’t have an account? <a href='#'>Sign up</a>
-        </Message>
-      </Grid.Column>
-    </Grid>
+    <div className='login-style'>
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <h2 className='login-header'>Log In</h2>
+          <hr/>
+          <Form size='large' onSubmit={handleSubmit}>
+            <Segment stacked>
+              <Form.Input
+                autoFocus
+                fluid
+                icon='user'
+                iconPosition='left'
+                placeholder='Email'
+                type='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Form.Input
+                fluid
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password'
+                type='password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Button classcolor='cornflowerblue' fluid size='large'>
+                Log In
+              </Button>
+            </Segment>
+          </Form>
+          <Message>
+            Forgot <a href='#'>password?</a>
+          </Message>
+          <Message>
+            Don’t have an account? <a href='#'>Sign up</a>
+          </Message>
+        </Grid.Column>
+      </Grid>
+    </div>
   );
 };
 

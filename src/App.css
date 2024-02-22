@@ -125,9 +125,25 @@ html, body {
 .signup-style {
   background-color: rgb(20, 20, 20);
   color: white;
+  text-align: center;
+}
+
+.signup-header {
+  color: royalblue; 
+  /* text-align: left; */
 }
 
 .signup-subheader {
   color: white;
+  /* text-align: left; */
+}
+
+.login-style {
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+
+.login-header {
+  color: royalblue; 
   text-align: left;
 }
