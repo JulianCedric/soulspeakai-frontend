@@ -78,6 +78,18 @@ const App = () => {
     setNewPrayerSession({ ...newPrayerSession, created: formattedDate });
   };
 
+  const handleEmotion = (emotion) => {
+    setNewPrayerSession({ ...newPrayerSession, emotion });
+  };
+
+  const handleContext = (context) => {
+    setNewPrayerSession({ ...newPrayerSession, context });
+  };
+
+  const handleGeneratedPrayer = (generatedPrayer) => {
+    setNewPrayerSession({ ...newPrayerSession, generatedPrayer });
+  };
+
   const handleInsight = (insight) => {
     console.log('Insight:', insight);
     const newInsight = insight;
@@ -96,6 +108,7 @@ const App = () => {
 
   const handleCompletePrayerSession = () => {
     setNewPrayerSession({ ...newPrayerSession, lastVisited: formattedDate });
+    setPrayerSessions([...prayerSessions, newPrayerSession]);
   };
 
   return (
@@ -103,7 +116,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home handleBegin={handleBegin} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
+          <Route path="/" element={<Home handleBegin={handleBegin} handleEmotion={handleEmotion} handleContext={handleContext} handleGeneratedPrayer={handleGeneratedPrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
           <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} />} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
