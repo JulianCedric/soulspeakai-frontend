@@ -72,7 +72,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home handleInsight={handleInsight} handleTask={handleTask} handleTaskCompleted={handleTaskCompleted} />} />
-          <Route path="/dashboard" element={<Dashboard />} />            
+          <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} />} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         </Routes>
