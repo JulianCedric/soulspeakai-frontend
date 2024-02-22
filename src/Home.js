@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Header, Button, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
+import IntroText from './IntroText';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
@@ -44,19 +45,7 @@ const Home = ({ handleInsight, handleTask, handleTaskCompleted }) => {
     <div className='appStyle'>
         <Segment inverted textAlign="center" vertical className="full-height" style={{ padding: '1em 0em', backgroundColor: 'rgb(20, 20, 20' }}>
             <Container className='contentStyle'>
-                <div>
-                    <h1 className="soulSpeakHeading">
-                    Soul<span className="soulSpeakSpan">Speak</span><span className="soulSpeakAiSpan">ai</span>
-                    </h1>
-                    <p className="soulSpeakTagline">Your very own <span className="whiteText">ai</span> prayer partner.</p>
-                    <br/><br/>
-                </div>
-                <p className="contentText">
-                <span className='whiteText'>SoulSpeakai</span> is designed to help you turn strong emotions into <strong className='italicText'>right action</strong>.
-                </p>
-                <p className="contentText">
-                Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps:
-                </p>
+                <IntroText />
                 {activeStep === 0 && (
                     <>
                         <br/><br/><br/><br/><br/><br/><br/>

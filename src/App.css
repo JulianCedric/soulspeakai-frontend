@@ -79,13 +79,18 @@ html, body {
   color: rgb(150, 150, 150);
 }
 
-.whiteText {
-  color: rgb(255, 255, 255);
+.contentText {
+  font-size: 1.25em;
+  color: rgb(150, 150, 150)
 }
 
-.contentText {
-  font-size: 1.33em;
-  color: rgb(150, 150, 150)
+.whiteText {
+  color: rgb(255, 255, 255);
+  font-style: bold;
+}
+
+.italicText {
+  font-style: italic;
 }
 
 .footerStyle {
@@ -95,10 +100,6 @@ html, body {
   padding: '1em 0';
   text-align: 'center';
   color: 'white';
-}
-
-.italicTextId {
-  font-style: italic;
 }
 
 .site-footer {
