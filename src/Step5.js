@@ -2,10 +2,9 @@ import React from 'react';
 import { Container, Header, Button, Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-const Step5 = ({ renderClosingMessage, handleTaskCompleted }) => {
-  // Placeholder function for handling the 'Do It Now' action
+const Step5 = ({ renderClosingMessage, handleTaskStatus }) => {
   const handleDoItNow = () => {
-    handleTaskCompleted();
+    handleTaskStatus();
     alert("Task marked 'Complete' in Dashboard.");
   };
 

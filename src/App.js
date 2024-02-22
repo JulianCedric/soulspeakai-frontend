@@ -16,14 +16,16 @@ const USERS = [
   }
 ];
 
-const PRAYERSESSIONS = {
+const PRAYERSESSIONS = [
+  {
   emotion: 'anxious',
   context: 'my presentation tomorrow',
   generatedPrayer: 'Lord, thank You for Your constant presence and guidance in my life. As I prepare for my project tomorrow, I seek Your wisdom and strength to face any challenges that may arise. Help me to trust in Your plans for me, knowing that You work all things together for my good. "For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future." (Jeremiah 29:11) Grant me the courage to step out in faith and not be discouraged, for "I can do all things through Christ who strengthens me." (Philippians 4:13) May Your peace that surpasses all understanding guard my heart and mind, enabling me to focus on the task at hand. "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go." (Joshua 1:9) In Jesus’ name, amen.',
   insight: 'Focus on preparing one section at a time.',
   task: 'Write first draft of only the intro before noon.',
-  taskCompleted: false
-};
+  taskStatus: 'Incomplete'
+  }
+];
 
 const App = () => {
   const [users, setUsers] = useState(USERS);
@@ -35,7 +37,7 @@ const App = () => {
   console.log('prayerSessions.generatedPrayer:', prayerSessions.generatedPrayer);
   console.log('prayerSessions.insight:', prayerSessions.insight);
   console.log('prayerSessions.task:', prayerSessions.task);
-  console.log('prayerSessions.taskCompleted:', prayerSessions.taskCompleted);
+  console.log('prayerSessions.taskStatus:', prayerSessions.taskStatus);
 
   const handleSignup = (email, password, firstName, lastName) => {
     setUsers([...users, { email, password, firstName, lastName }]);
@@ -61,20 +63,18 @@ const App = () => {
     setPrayerSessions({ ...prayerSessions, task });
   };
 
-  const handleTaskCompleted = (taskCompleted) => {
-    console.log('Task completed:', taskCompleted);
-    setPrayerSessions((prevPrayerSessions) => ({
-      ...prayerSessions,
-      taskCompleted: true
-    }));
+  const handleTaskStatus = () => {
+    const taskCompleted = 'Complete';
+    setPrayerSessions({ ...prayerSessions, taskCompleted });
   };
+
 
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home handleInsight={handleInsight} handleTask={handleTask} handleTaskCompleted={handleTaskCompleted} />} />
+          <Route path="/" element={<Home handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} />} />
           <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} />} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />

@@ -38,7 +38,6 @@ function ModalExampleDimmer() {
       >
         Blurring
       </Button>
-
       <Modal
         dimmer={dimmer}
         open={open}

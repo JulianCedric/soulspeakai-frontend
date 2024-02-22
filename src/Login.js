@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import AccountRecoveryForm from './AccountRecoveryForm';
 
 const Login = ({ handleLogin }) => {
     const [email, setEmail] = useState('');
@@ -39,7 +38,6 @@ const Login = ({ handleLogin }) => {
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-
               />
               <Form.Input
                 size='mini'
