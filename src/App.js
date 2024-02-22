@@ -5,6 +5,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import Signup from './Signup';
 import Login from './Login';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const USERS = [
   { 
@@ -67,11 +68,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar />
-      <Home handleInsight={handleInsight} handleTask={handleTask} handleTaskCompleted={handleTaskCompleted}/>
-      {/* <Dashboard /> */}
-      {/* <Signup handleSignup={handleSignup}/> */}
-      {/* <Login handleLogin={handleLogin}/> */}
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home handleInsight={handleInsight} handleTask={handleTask} handleTaskCompleted={handleTaskCompleted} />} />
+          <Route path="/dashboard" element={<Dashboard />} />            
+          <Route path="/signup" element={<Signup handleSignup={handleSignup} />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+        </Routes>
+      </Router>
     </div>
   );
 };
