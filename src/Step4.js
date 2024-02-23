@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Header, Button, Input, Form } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import './App.css';
 
 const Step4 = ({ renderStep5, handleTask }) => {
   const [task, setTask] = useState('');
@@ -13,14 +14,13 @@ const Step4 = ({ renderStep5, handleTask }) => {
 
   return (
     <Container text style={{ marginTop: '5em' }}>
-      <Header as='h2' content='Step 4. Decide on your next right move.' textAlign='left' style={{ color: 'white' }} />
-      <p style={{ textAlign: 'center', marginTop: '1em' }}>
-        Pinpoint a <strong>specific action</strong>.
-      </p>
+      <Header as='h2' content='Step 4. Decide on your next right move.' textAlign='left' style={{ color: 'white', fontSize: '1.25em' }} />
+      <p className='steps-style'>Pinpoint a <strong>specific action</strong>.</p>
       <div style={{ marginTop: '2em' }}>
-        <p>After reflecting on your emotions and insights, it's time to think about action.</p>
-        <p>What is one small, concrete action you can take right now or plan to take soon?</p>
-        <p>Identify your next right move as a task below:</p>
+        <p className='steps-style'>After reflecting on your emotions and insights, it's time to think about action.</p>
+        <p className='steps-style'>What is one small, concrete action you can take right now or plan to take soon?</p>
+        <p className='steps-style'>Identify your next right move as a task below:</p>
+        <br/>
         <Form onSubmit={handleSubmit}>
           <Input
             autoFocus
@@ -29,6 +29,7 @@ const Step4 = ({ renderStep5, handleTask }) => {
             onChange={(e) => setTask(e.target.value)}
             fluid
           />
+
           <Button
             content='Save'
             primary

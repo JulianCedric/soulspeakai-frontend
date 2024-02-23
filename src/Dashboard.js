@@ -52,7 +52,7 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                       <li className='prayer-session-dates'>Last visit: {session.lastVisited}</li>                    
                     </ul>
                     <ModalContent image scrolling>
-                      <ModalDescription>
+                      <ModalDescription style={{ marginTop: '-0.5em', marginLeft: '1.5em' }}>
                         <p>
                           I'm feeling {session.emotion} about {session.context}.
                         </p>

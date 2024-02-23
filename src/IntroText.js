@@ -19,6 +19,8 @@ const IntroText = () => {
                     {/* Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps: */}
                     Whenever you feel a strong emotion about a situation in your life, let your ai prayer partner guide you through these 5 steps:
                     </p>
+                    <br/>
+                    <hr style={{ backgroundColor: 'rgb(50, 50, 50)', border: 'none', height: '2px' }}/>
                 </div>
             </div>
         </>

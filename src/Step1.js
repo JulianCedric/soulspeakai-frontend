@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Header, Segment } from 'semantic-ui-react';
+import { Button, Container, Form, Header, Segment } from 'semantic-ui-react';
 import Emotion from './Emotion';
 import Context from './Context';
 import Prayer from './Prayer';
@@ -22,8 +22,9 @@ const Step1 = ({ renderStep2, handleEmotion, handleContext, handlePrayer }) => {
   };
   
   return (
+    <Container text style={{ marginTop: '-0.5em', minWidth: '93%' }}>
     <Segment padded="very" textAlign="center" style={{ background: 'transparent', boxShadow: 'none', color: 'white' }}>
-      <Header as="h1" style={{ color: 'white', fontSize: '1.25em', textAlign: 'left' }}>Step 1. Generate Prayer</Header>
+      <Header as="h1" style={{ color: 'white', fontSize: '1.42em', textAlign: 'left' }}>Step 1. Generate Prayer</Header>
       <br/><br/>
       <div className='inline-style'>
         <span>I'm feeling </span>
@@ -35,6 +36,7 @@ const Step1 = ({ renderStep2, handleEmotion, handleContext, handlePrayer }) => {
         <Button onClick={handleSubmit} primary>Enter</Button>
       </div>
     </Segment>
+  </Container>
   );
 };
 

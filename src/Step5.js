@@ -22,21 +22,22 @@ const Step5 = ({ renderClosingMessage, handleTaskStatus, handleCompletePrayerSes
 
   return (
     <Container text style={{ marginTop: '5em' }}>
-      <Header as='h2' content='Step 5. Take right action.' textAlign='left' style={{ color: 'white' }} />
-      <p style={{ textAlign: 'center', marginTop: '1em' }}>
-        Do it now, or schedule it for later.
-      </p>
+      <Header as='h2' content='Step 5. Take right action.' textAlign='left' style={{ color: 'white', fontSize: '1.25em' }} />
+      <p className='steps-style'>Do it now, or schedule it for later.</p>
       <Grid columns={2} divided style={{ marginTop: '2em' }}>
-        <Grid.Column textAlign='center'>
+        <Grid.Column textAlign='center' style={{ fontSize: '.75em' }}>
           <p>Can you complete your task in less than 2 minutes?</p>
+          <br/>
           <Button content='Do It Now' primary onClick={handleDoItNow} />
         </Grid.Column>
-        <Grid.Column textAlign='center'>
+        <Grid.Column textAlign='center' style={{ fontSize: '.75em' }}>
           <p>Need to save your task for later?</p>
+          <br/>
           <Button content='Save for Later' primary onClick={handleScheduleLater} />
         </Grid.Column>
       </Grid>
       <div style={{ textAlign: 'center', marginTop: '2em' }}>
+        <br/>
         <Button 
           content='Complete Prayer Session' 
           primary 
