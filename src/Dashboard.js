@@ -43,7 +43,7 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                     open={open}
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
-                    trigger={<h4 className='prayer-session-modal-click'>Scrolling Content Modal</h4>}
+                    trigger={<h4 className='prayer-session-modal-click'>I'm feeling {session.emotion} about {session.context}</h4>}
                   >
                     <ModalHeader>Prayer Session</ModalHeader>
                     <ul>
