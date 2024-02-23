@@ -8,7 +8,7 @@ const IntroText = () => {
                     <h1 className="soul-speak-heading">
                         Soul<span className="soul-speak-span">Speak</span><span className="soul-speak-ai-span">ai</span>
                     </h1>
-                    <p className="soul-speak-tagline">Your very own <span className="white-text">ai</span> prayer partner.</p>
+                    <p className="soul-speak-ai-tagline">Your very own <span className="white-text">ai</span> prayer partner.</p>
                     <br/><br/>
                 </div>
                 <div className="content-text">

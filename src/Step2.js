@@ -1,20 +1,17 @@
 import React from 'react';
-import { Container, Button, Header, Icon } from 'semantic-ui-react';
+import { Container, Button, Header, Icon, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import './App.css';
 
 const Step2 = ({ renderStep3 }) => {
   return (
     <Container text style={{ marginTop: '5em' }}>
-      <Header as='h2' content='Step 2. Pray' textAlign='left' style={{ color: 'white' }}/>
-      <p style={{ fontSize: '1.33em', textAlign: 'center', marginTop: '2em' }}>
-        Pray until you're calm.
-      </p>
-      <p style={{ fontSize: '1.33em', textAlign: 'center', margin: '2em 0' }}>
-        Use the tools below to hear your prayer read aloud—or in an audioloop.
-      </p>
-      <p style={{ fontSize: '1.33em', textAlign: 'center', marginBottom: '2em' }}>
-        And when you're ready, proceed to the next step.
-      </p>
+      <Header as='h2' content='Step 2. Pray' textAlign='left' style={{ color: 'white', fontSize: '1.25em' }}/>
+      <p className='steps-style'>Pray until you're calm.</p>
+      <br/>
+      <p className='steps-style'>Use the tools below to hear your prayer read aloud—or in an audioloop.</p>
+      <p className='steps-style'>And when you're ready, proceed to the next step.</p>
+      <br/>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2em' }}>
         <Button icon>
           <Icon name='play' />

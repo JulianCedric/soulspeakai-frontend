@@ -12,7 +12,6 @@ import ClosingMessage from './ClosingMessage';
 
 const Home = ({ handleBegin, handleEmotion, handleContext, handlePrayer, handleInsight, handleTask, handleTaskStatus, handleCompletePrayerSession }) => {
     const [activeStep, setActiveStep] = useState(0);
-    // const activeStepRef = useRef(null);
     const lastStepRef = useRef(null);
 
     useEffect(() => {
@@ -61,10 +60,10 @@ const Home = ({ handleBegin, handleEmotion, handleContext, handlePrayer, handleI
     };
 
   return (
-    <div className='home-style'>
+    <div className='home'>
         <Segment inverted textAlign="center" vertical className="full-height" style={{ padding: '1em 0em', backgroundColor: 'rgb(20, 20, 20' }}>
-            <Container className='content-style'>
-                <IntroText />
+            <IntroText />
+            <Container style={{ width: '100%', margin: '0 auto' }} className='content'>
                 {activeStep === 0 && (
                     <>
                         <br/><br/><br/><br/><br/><br/><br/>
@@ -85,9 +84,9 @@ const Home = ({ handleBegin, handleEmotion, handleContext, handlePrayer, handleI
                 <br/>
             </Container>
         </Segment>
-        <footer className='site-footer' style={{ position: 'absolute', bottom: '0', width: '100%', padding: '1em 0', textAlign: 'center', color: 'white' }}>
+        {/* <footer className='site-footer' style={{ position: 'absolute', bottom: '0', width: '100%', padding: '1em 0', textAlign: 'center', color: 'white' }}>
             &copy; 2024 SoulSpeakai. All rights reserved.
-        </footer>
+        </footer> */}
     </div>
   );
 };

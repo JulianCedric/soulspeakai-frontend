@@ -4,7 +4,7 @@ import { Button, Form, Grid } from 'semantic-ui-react';
 const Context = ({ context, setContext }) => {
   return (
     <Form.Input 
-      placeholder="my presentation tomorrow" 
+      placeholder="context" 
       value={context}
       onChange={e => setContext(e.target.value)}
     />

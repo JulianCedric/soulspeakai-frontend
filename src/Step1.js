@@ -3,6 +3,7 @@ import { Button, Form, Header, Segment } from 'semantic-ui-react';
 import Emotion from './Emotion';
 import Context from './Context';
 import Prayer from './Prayer';
+import './App.css';
 
 const Step1 = ({ renderStep2, handleEmotion, handleContext, handlePrayer }) => {
   const [emotion, setEmotion] = useState('');
@@ -21,14 +22,19 @@ const Step1 = ({ renderStep2, handleEmotion, handleContext, handlePrayer }) => {
   };
   
   return (
-    <Segment padded="very" textAlign="center">
-      <Header as="h1">Step 1. Generate Prayer</Header>
-      <Emotion emotion={emotion} setEmotion={setEmotion}/>
-      <Context context={context} setContext={setContext}/>
-      <hr/>
-      {/* <Prayer handlePrayer={handlePrayer}/> */}
-      <Button onClick={handleSubmit} primary>Next</Button>
-      </Segment>
+    <Segment padded="very" textAlign="center" style={{ background: 'transparent', boxShadow: 'none', color: 'white' }}>
+      <Header as="h1" style={{ color: 'white', fontSize: '1.25em', textAlign: 'left' }}>Step 1. Generate Prayer</Header>
+      <br/><br/>
+      <div className='inline-style'>
+        <span>I'm feeling </span>
+        <Emotion emotion={emotion} setEmotion={setEmotion}/>
+        <span> about </span>
+        <Context context={context} setContext={setContext}/>
+        <span> .</span>
+        {/* <Prayer handlePrayer={handlePrayer}/> */}
+        <Button onClick={handleSubmit} primary>Enter</Button>
+      </div>
+    </Segment>
   );
 };
 

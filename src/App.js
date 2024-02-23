@@ -5,6 +5,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import Signup from './Signup';
 import Login from './Login';
+import EMOTIONS from './Emotions';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const USERS = [
@@ -31,6 +32,7 @@ const PRAYERSESSIONS = [
 
 const App = () => {
   const [users, setUsers] = useState(USERS);
+  const [emotions, setEmotions] = useState(EMOTIONS);
   const [renderLogout, setRenderLogout] = useState(false);
   const [prayerSessions, setPrayerSessions] = useState(PRAYERSESSIONS);
   const [newPrayerSession, setNewPrayerSession] = useState({

@@ -21,7 +21,7 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
   const [open, setOpen] = useState(false);
 
   return (
-    <div className='dashboard-style'>
+    <div className='dashboard'>
       <Container>
         <Header as='h1' dividing style={{ color: 'white' }}>
           My Dashboard
@@ -63,7 +63,7 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                           After spending some time on Your Word, a few new insights came to mind: {session.insight}.
                         </p>
                         <p>
-                            And to do my part in all this, I committed to completing this one, small task: {session.task}, which I've reasoned to be a step in the right direction.
+                            And to do my part in all this, I committed to completing this one task ({session.task})—my next small step in the right direction.
                         </p>
                       </ModalDescription>
                     </ModalContent>
