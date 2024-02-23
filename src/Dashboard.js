@@ -10,13 +10,14 @@ import {
   Icon,
   Image, 
   Modal,
+  Popup,
   Table 
 } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import PrayerSession from './PrayerSession';
 
-const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
+const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusChange }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className='dashboard-style'>
@@ -37,7 +38,6 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
           <Table.Body>
             {prayerSessions.map((session, index) => (
               <Table.Row key={index}>
-                {/* <Table.Cell className='cornflowerblue-text' onClick={(key) => handleLastVisited(key)}>I'm feeling {session.emotion} about {session.context}.</Table.Cell> */}
                 <Table.Cell>    
                   <Modal
                     open={open}
@@ -47,8 +47,8 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
                   >
                     <ModalHeader>Prayer Session</ModalHeader>
                     <ul>
-                      <li className='prayer-session-created'>Created on {session.created}</li>
-                      <li className='prayer-session-created'>Last visit: {session.lastVisited}</li>                    
+                      <li className='prayer-session-dates'>Created on {session.created}</li>
+                      <li className='prayer-session-dates'>Last visit: {session.lastVisited}</li>                    
                     </ul>
                     <ModalContent image scrolling>
                       <ModalDescription>
@@ -62,10 +62,18 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
                           After spending some time on Your Word, a few new insights came to mind: {session.insight}.
                         </p>
                         <p>
-                          And to do my part in all this, I committed to this one, small task: {session.task}.
+                            And to do my part in all this, I committed to completing this one, small task: {session.task}, which I've reasoned to be a step in the right direction.
                         </p>
                       </ModalDescription>
                     </ModalContent>
+                    <ul>
+
+                      {session.taskStatus === 'Incomplete' ? (
+                      <li className='prayer-session-task-status-incomplete'>Task: {session.taskStatus}   <span><Popup content='Mark as Complete' trigger={<Button size='mini' icon='circle outline' onClick={() => handleTaskStatusChange()}/>}/></span></li>
+                      ) : (
+                        <li className='prayer-session-task-status-complete'>Task Completed</li>
+                      )}
+                    </ul>
                     <ModalActions>
                       <Button onClick={() => setOpen(false)} primary>
                         Close

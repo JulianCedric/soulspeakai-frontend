@@ -155,15 +155,30 @@ html, body {
 
 .prayer-session-modal-click {
   cursor: pointer;
-
 }
 
 .prayer-session-modal-click:hover {
   color: cornflowerblue;
 }
 
-.prayer-session-created {
+.prayer-session-dates {
   color: royalblue;
   font-style: italic;
+  list-style-type: none;
+}
+
+.ui.modal > .content {
+  overflow-x: hidden;
+}
+
+.prayer-session-task-status-incomplete {
+  color: royalblue;
+  font-weight: bold;
+  list-style-type: none;
+}
+
+.prayer-session-task-status-complete {
+  color: green;
+  font-weight: bold;
   list-style-type: none;
 }

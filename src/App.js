@@ -112,6 +112,14 @@ const App = () => {
     setNewPrayerSession({ ...newPrayerSession, taskStatus: status });
   };
 
+  const handleTaskStatusChange = () => {
+    if (newPrayerSession.taskStatus === 'Incomplete') {
+      setNewPrayerSession({ ...newPrayerSession, taskStatus: 'Complete' });
+    } else {
+      setNewPrayerSession({ ...newPrayerSession, taskStatus: 'Incomplete' });
+    };
+  };
+
   const handleCompletePrayerSession = () => {
     setPrayerSessions([...prayerSessions, newPrayerSession]);
   };
@@ -122,7 +130,7 @@ const App = () => {
         <Navbar renderLogout={renderLogout}/>
         <Routes>
           <Route path="/" element={<Home handleBegin={handleBegin} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
-          <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited}/>} />            
+          <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited} handleTaskStatusChange={handleTaskStatusChange}/>} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} toggleLogout={toggleLogout}/>} />
           <Route path="/login" element={<Login handleLogin={handleLogin} toggleLogout={toggleLogout} />} />
         </Routes>
