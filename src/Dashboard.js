@@ -1,10 +1,23 @@
 import React, { useState } from 'react';
-import { Container, Table, Header, Segment } from 'semantic-ui-react';
+import { 
+  Container, 
+  Header, 
+  ModalHeader,
+  ModalDescription,
+  ModalContent,
+  ModalActions,
+  Button,
+  Icon,
+  Image, 
+  Modal,
+  Table 
+} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
+import PrayerSession from './PrayerSession';
 
 const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
-  
+  const [open, setOpen] = useState(false);
   return (
     <div className='dashboard-style'>
       <Container>
@@ -24,7 +37,42 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
           <Table.Body>
             {prayerSessions.map((session, index) => (
               <Table.Row key={index}>
-                <Table.Cell className='cornflowerblue-text' onClick={(key) => handleLastVisited(key)}>I'm feeling {session.emotion} about {session.context}.</Table.Cell>
+                {/* <Table.Cell className='cornflowerblue-text' onClick={(key) => handleLastVisited(key)}>I'm feeling {session.emotion} about {session.context}.</Table.Cell> */}
+                <Table.Cell>    
+                  <Modal
+                    open={open}
+                    onClose={() => setOpen(false)}
+                    onOpen={() => setOpen(true)}
+                    trigger={<h4 className='prayer-session-modal-click'>Scrolling Content Modal</h4>}
+                  >
+                    <ModalHeader>Prayer Session</ModalHeader>
+                    <ul>
+                      <li className='prayer-session-created'>Created on {session.created}</li>
+                    
+                    </ul>
+                    <ModalContent image scrolling>
+                      <ModalDescription>
+                        <p>
+                          I'm feeling {session.emotion} about {session.context}.
+                        </p>
+                        <p>
+                          I'm praying for {session.prayer}.
+                        </p>
+                        <p>
+                          I'm gaining insight from {session.insight}.
+                        </p>
+                        <p>
+                          I'm working on {session.task}.
+                        </p>
+                      </ModalDescription>
+                    </ModalContent>
+                    <ModalActions>
+                      <Button onClick={() => setOpen(false)} primary>
+                        Close
+                      </Button>
+                    </ModalActions>
+                    </Modal>
+                </Table.Cell>
                 <Table.Cell>{session.created}</Table.Cell>
                 <Table.Cell>{session.lastVisited}</Table.Cell>
                 <Table.Cell>{session.taskStatus}</Table.Cell>

@@ -84,11 +84,13 @@ const App = () => {
   const handleEmotion = (emotion) => {
     const newEmotion = emotion;
     setNewPrayerSession({ ...newPrayerSession, emotion: newEmotion });
+    console.log('newPrayerSession:', newPrayerSession);
   };
 
   const handleContext = (context) => {
     const newContext = context;
     setNewPrayerSession({ ...newPrayerSession, context: newContext });
+    console.log('newPrayerSession:', newPrayerSession);
   };
 
   const handlePrayer = (prayer) => {

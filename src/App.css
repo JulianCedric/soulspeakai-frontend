@@ -152,3 +152,18 @@ html, body {
   color: cornflowerblue;
   font-weight: bold;
 }
+
+.prayer-session-modal-click {
+  cursor: pointer;
+
+}
+
+.prayer-session-modal-click:hover {
+  color: cornflowerblue;
+}
+
+.prayer-session-created {
+  color: royalblue;
+  font-weight: italic;
+  list-style-type: none;
+}
