@@ -19,6 +19,7 @@ import PrayerSession from './PrayerSession';
 
 const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusChange }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <div className='dashboard-style'>
       <Container>
@@ -84,6 +85,7 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                 <Table.Cell>{session.created}</Table.Cell>
                 <Table.Cell>{session.lastVisited}</Table.Cell>
                 <Table.Cell>{session.taskStatus}</Table.Cell>
+                <Table.Cell><Popup content='Mark as Complete' trigger={<Button size='mini' icon='ellipsis horizontal' inverted onClick={() => handleTaskStatusChange()}/>}/></Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

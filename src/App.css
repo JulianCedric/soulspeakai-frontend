@@ -155,10 +155,11 @@ html, body {
 
 .prayer-session-modal-click {
   cursor: pointer;
+  color: cornflowerblue;
 }
 
 .prayer-session-modal-click:hover {
-  color: cornflowerblue;
+  color: white;
 }
 
 .prayer-session-dates {

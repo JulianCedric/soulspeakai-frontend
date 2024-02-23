@@ -30,7 +30,7 @@ const Navbar = ({ renderLogout }) => {
           </Menu.Menu>
           ) : (
             <Menu.Menu position='right'>
-              <Menu.Item as={Link} to='/login' onClick={renderLogout}>Log out</Menu.Item>
+              <Menu.Item as={Link} to='/login' style={{ marginLeft: '11em', marginRight: '-11em' }} onClick={renderLogout}>Log out</Menu.Item>
             </Menu.Menu>
           )}
         </Container>

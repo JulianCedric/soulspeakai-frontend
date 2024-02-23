@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Header, Button, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -12,10 +12,24 @@ import ClosingMessage from './ClosingMessage';
 
 const Home = ({ handleBegin, handleEmotion, handleContext, handlePrayer, handleInsight, handleTask, handleTaskStatus, handleCompletePrayerSession }) => {
     const [activeStep, setActiveStep] = useState(0);
+    // const activeStepRef = useRef(null);
+    const lastStepRef = useRef(null);
+
+    useEffect(() => {
+        if (lastStepRef.current) {
+            lastStepRef.current.scrollIntoView({
+                behavior: "smooth"
+            });
+        };
+    }, [activeStep]);
 
     const onBegin = () => {
-        renderStep1();
+        setActiveStep(1);
         handleBegin();
+    };
+
+    const nextStep = (stepNumber) => {
+        setActiveStep(stepNumber);
     };
 
     const beginAgain = () => {
@@ -59,12 +73,13 @@ const Home = ({ handleBegin, handleEmotion, handleContext, handlePrayer, handleI
                         </Button>
                     </>
                 )}
-                {activeStep === 1 && (<Step1 renderStep2={renderStep2} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer}/>)}
-                {activeStep === 2 && (<Step2 renderStep3={renderStep3}/>)}
-                {activeStep === 3 && (<Step3 renderStep4={renderStep4} handleInsight={handleInsight}/>)}
-                {activeStep === 4 && (<Step4 renderStep5={renderStep5} handleTask={handleTask}/>)}
-                {activeStep === 5 && (<Step5 renderClosingMessage={renderClosingMessage} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession}/>)}
-                {activeStep === 6 && (<ClosingMessage beginAgain={beginAgain}/>)}
+                {activeStep >= 1 && (<Step1 renderStep2={renderStep2} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer}/>)}
+                {activeStep >= 2 && (<Step2 renderStep3={renderStep3}/>)}
+                {activeStep >= 3 && (<Step3 renderStep4={renderStep4} handleInsight={handleInsight}/>)}
+                {activeStep >= 4 && (<Step4 renderStep5={renderStep5} handleTask={handleTask}/>)}
+                {activeStep >= 5 && (<Step5 renderClosingMessage={renderClosingMessage} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession}/>)}
+                {activeStep >= 6 && (<ClosingMessage beginAgain={beginAgain}/>)}
+                <div ref={lastStepRef}></div>
                 <br/>
                 <br/>
                 <br/>
