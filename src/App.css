@@ -164,6 +164,6 @@ html, body {
 
 .prayer-session-created {
   color: royalblue;
-  font-weight: italic;
+  font-style: italic;
   list-style-type: none;
 }

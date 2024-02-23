@@ -48,7 +48,7 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
                     <ModalHeader>Prayer Session</ModalHeader>
                     <ul>
                       <li className='prayer-session-created'>Created on {session.created}</li>
-                    
+                      <li className='prayer-session-created'>Last visit: {session.lastVisited}</li>                    
                     </ul>
                     <ModalContent image scrolling>
                       <ModalDescription>
@@ -56,13 +56,13 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited }) => {
                           I'm feeling {session.emotion} about {session.context}.
                         </p>
                         <p>
-                          I'm praying for {session.prayer}.
+                          {session.prayer}.
                         </p>
                         <p>
-                          I'm gaining insight from {session.insight}.
+                          After spending some time on Your Word, a few new insights came to mind: {session.insight}.
                         </p>
                         <p>
-                          I'm working on {session.task}.
+                          And to do my part in all this, I committed to this one, small task: {session.task}.
                         </p>
                       </ModalDescription>
                     </ModalContent>
