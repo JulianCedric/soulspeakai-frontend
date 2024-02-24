@@ -197,3 +197,9 @@ html, body {
   font-size: .75em;
   text-align: left;
 }
+
+.no-border-icon .ui.button {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}

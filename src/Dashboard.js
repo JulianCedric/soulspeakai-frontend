@@ -89,9 +89,9 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                 <Table.Cell>{session.taskStatus}</Table.Cell>
                 <Table.Cell>
                   {session.taskStatus === 'Incomplete' ? (
-                    <Popup content='Mark as Complete' trigger={<Button size='mini' icon='circle outline' inverted onClick={() => handleTaskStatusChange(session.id)}/>}/>
+                    <Popup content='Mark as Complete' trigger={<Button className='no-border-icon' inverted size='mini' icon='circle outline' onClick={() => handleTaskStatusChange(session.id)}/>}/>
                   ) : (
-                    <Popup content='Mark as Incomplete' trigger={<Button size='mini' icon='circle' inverted onClick={() => handleTaskStatusChange(session.id)}/>}/>
+                    <Popup content='Mark as Incomplete' trigger={<Button className='no-border-icon' inverted size='mini' icon='circle' onClick={() => handleTaskStatusChange(session.id)}/>}/>
                   
                   )}
                 </Table.Cell>

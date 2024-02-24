@@ -55,10 +55,6 @@ const App = () => {
   const year = date.getFullYear();
   const formattedDate = `${monthNames[monthIndex]} ${day}, ${year}`;
 
-  console.log('users:', users);
-  console.log('prayerSessions:', prayerSessions);
-  console.log('newPrayerSession:', newPrayerSession);
-
   const handleSignup = (email, password, firstName, lastName) => {
     setUsers([...users, { email, password, firstName, lastName }]);
   };
@@ -95,7 +91,6 @@ const App = () => {
 
   const updatePrayerSession = (object) => {
     setNewPrayerSession({ ...newPrayerSession, emotion: object.emotion, context: object.context});
-    console.log('newPrayerSession:', newPrayerSession);
   };
 
   const handlePrayer = (prayer) => {
@@ -113,12 +108,10 @@ const App = () => {
   };
 
   const handleTaskStatus = (status) => {
-    console.log('status:', status);
     setNewPrayerSession({ ...newPrayerSession, taskStatus: status });
   };
 
   const handleTaskStatusChange = (id) => {
-    console.log('handleTaskStatusChange_id:', id);
     const updatedSessions = prayerSessions.map(session => {
       if (session.id === id) {
         const newStatus = session.taskStatus === 'Incomplete' ? 'Complete' : 'Incomplete';
@@ -130,6 +123,7 @@ const App = () => {
 };
 
   const handleCompletePrayerSession = () => {
+    console.log('newPrayerSession', newPrayerSession);
     setPrayerSessions([...prayerSessions, newPrayerSession]);
   };
 

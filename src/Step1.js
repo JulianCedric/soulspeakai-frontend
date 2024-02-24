@@ -8,8 +8,6 @@ import './App.css';
 const Step1 = ({ updatePrayerSession, renderStep2, handlePrayer }) => {
   const [emotion, setEmotion] = useState('');
   const [context, setContext] = useState('');
-  console.log('Step1.js: emotion:', emotion);
-  console.log('Step1.js: context:', context);
 
   const handleSubmit = () => {
     if (!emotion.trim() || !context.trim()) {

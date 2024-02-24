@@ -6,8 +6,6 @@ import logo from './assets/images/ssai-logo.png';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({ renderLogout }) => {
-  console.log('renderLogout:', renderLogout);
-
   return (
     <Menu className='navbar' inverted fixed='top' size='medium' style={{ background: 'transparent' }}>
       <Container>
