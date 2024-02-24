@@ -83,15 +83,8 @@ const App = () => {
     setNewPrayerSession({ ...newPrayerSession, lastVisited: currentDate });
   };
 
-  const handleEmotion = (emotion) => {
-    const newEmotion = emotion;
-    setNewPrayerSession({ ...newPrayerSession, emotion: newEmotion });
-    console.log('newPrayerSession:', newPrayerSession);
-  };
-
-  const handleContext = (context) => {
-    const newContext = context;
-    setNewPrayerSession({ ...newPrayerSession, context: newContext });
+  const updatePrayerSession = (object) => {
+    setNewPrayerSession({ ...newPrayerSession, emotion: object.emotion, context: object.context});
     console.log('newPrayerSession:', newPrayerSession);
   };
 
@@ -131,7 +124,7 @@ const App = () => {
       <Router>
         <Navbar renderLogout={renderLogout}/>
         <Routes>
-          <Route path="/" element={<Home handleBegin={handleBegin} handleEmotion={handleEmotion} handleContext={handleContext} handlePrayer={handlePrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
+          <Route path="/" element={<Home updatePrayerSession={ updatePrayerSession } handleBegin={handleBegin} handlePrayer={handlePrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
           <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited} handleTaskStatusChange={handleTaskStatusChange}/>} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} toggleLogout={toggleLogout}/>} />
           <Route path="/login" element={<Login handleLogin={handleLogin} toggleLogout={toggleLogout} />} />

@@ -5,7 +5,7 @@ import Context from './Context';
 import Prayer from './Prayer';
 import './App.css';
 
-const Step1 = ({ renderStep2, handleEmotion, handleContext, handlePrayer }) => {
+const Step1 = ({ updatePrayerSession, renderStep2, handlePrayer }) => {
   const [emotion, setEmotion] = useState('');
   const [context, setContext] = useState('');
   console.log('Step1.js: emotion:', emotion);
@@ -15,9 +15,8 @@ const Step1 = ({ renderStep2, handleEmotion, handleContext, handlePrayer }) => {
     if (!emotion.trim() || !context.trim()) {
       alert("Please fill in all fields.");
       return;
-    }
-    handleEmotion(emotion);
-    handleContext(context);
+    };
+    updatePrayerSession({ emotion, context });
     renderStep2();
   };
   
