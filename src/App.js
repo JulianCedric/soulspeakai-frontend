@@ -127,13 +127,18 @@ const App = () => {
     setPrayerSessions([...prayerSessions, newPrayerSession]);
   };
 
+  const handleDeleteSession = (id) => {
+    const updatedSessions = prayerSessions.filter(session => session.id !== id);
+    setPrayerSessions(updatedSessions);
+  };
+
   return (
     <div className="App">
       <Router>
         <Navbar renderLogout={renderLogout}/>
         <Routes>
           <Route path="/" element={<Home updatePrayerSession={ updatePrayerSession } handleBegin={handleBegin} handlePrayer={handlePrayer} handleInsight={handleInsight} handleTask={handleTask} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession} />} />
-          <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited} handleTaskStatusChange={handleTaskStatusChange}/>} />            
+          <Route path="/dashboard" element={<Dashboard users={users} prayerSessions={prayerSessions} newPrayerSession={newPrayerSession} handleLastVisited={handleLastVisited} handleTaskStatusChange={handleTaskStatusChange} handleDeleteSession={handleDeleteSession} />} />            
           <Route path="/signup" element={<Signup handleSignup={handleSignup} toggleLogout={toggleLogout}/>} />
           <Route path="/login" element={<Login handleLogin={handleLogin} toggleLogout={toggleLogout} />} />
         </Routes>

@@ -17,7 +17,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import PrayerSession from './PrayerSession';
 
-const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusChange }) => {
+const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusChange, handleDeleteSession }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -91,10 +91,11 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                   {session.taskStatus === 'Incomplete' ? (
                     <Popup content='Mark as Complete' trigger={<Button className='no-border-icon' inverted size='mini' icon='circle outline' onClick={() => handleTaskStatusChange(session.id)}/>}/>
                   ) : (
-                    <Popup content='Mark as Incomplete' trigger={<Button className='no-border-icon' inverted size='mini' icon='circle' onClick={() => handleTaskStatusChange(session.id)}/>}/>
+                    <Popup content='Mark as Incomplete' trigger={<Button className='no-border-icon' inverted size='mini' icon='check' onClick={() => handleTaskStatusChange(session.id)}/>}/>
                   
                   )}
                 </Table.Cell>
+                <Table.Cell><Button icon='trash' inverted size='mini' onClick={() => handleDeleteSession(session.id)}/></Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
