@@ -30,6 +30,7 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
         <Table basic='very' celled inverted>
           <Table.Header>
             <Table.Row>
+              <Table.HeaderCell></Table.HeaderCell>
               <Table.HeaderCell>Prayer Session</Table.HeaderCell>
               <Table.HeaderCell>Created</Table.HeaderCell>
               <Table.HeaderCell>Last Visited</Table.HeaderCell>
@@ -39,11 +40,13 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
           <Table.Body>
             {prayerSessions.map((session, index) => (
               <Table.Row key={index}>
+                <Table.Cell>{session.id}</Table.Cell>
                 <Table.Cell>    
                   <Modal
                     open={open}
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
+                    onClick={() => handleLastVisited(session.id)}
                     trigger={<h4 className='prayer-session-modal-click'>I'm feeling {session.emotion} about {session.context}</h4>}
                   >
                     <ModalHeader>Prayer Session</ModalHeader>
@@ -68,9 +71,8 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                       </ModalDescription>
                     </ModalContent>
                     <ul>
-
                       {session.taskStatus === 'Incomplete' ? (
-                      <li className='prayer-session-task-status-incomplete'>Task: {session.taskStatus}   <span><Popup content='Mark as Complete' trigger={<Button size='mini' icon='circle outline' onClick={() => handleTaskStatusChange()}/>}/></span></li>
+                      <li className='prayer-session-task-status-incomplete'>Task: {session.taskStatus}</li>
                       ) : (
                         <li className='prayer-session-task-status-complete'>Task Completed</li>
                       )}
@@ -85,7 +87,14 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                 <Table.Cell>{session.created}</Table.Cell>
                 <Table.Cell>{session.lastVisited}</Table.Cell>
                 <Table.Cell>{session.taskStatus}</Table.Cell>
-                <Table.Cell><Popup content='Mark as Complete' trigger={<Button size='mini' icon='ellipsis horizontal' inverted onClick={() => handleTaskStatusChange()}/>}/></Table.Cell>
+                <Table.Cell>
+                  {session.taskStatus === 'Incomplete' ? (
+                    <Popup content='Mark as Complete' trigger={<Button size='mini' icon='circle outline' inverted onClick={() => handleTaskStatusChange(session.id)}/>}/>
+                  ) : (
+                    <Popup content='Mark as Incomplete' trigger={<Button size='mini' icon='circle' inverted onClick={() => handleTaskStatusChange(session.id)}/>}/>
+                  
+                  )}
+                </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
