@@ -72,19 +72,46 @@ const App = () => {
     if (response.ok) {
       const data = await response.json();
       console.log('Signup successful', data);
-      // Update frontend state as needed based on response
     } else {
       console.error('Signup failed');
     }
   };  
 
-  const handleLogin = (email, password) => {
-    const user = users.find(user => user.email === email && user.password === password);
-    if (user) {
-      return true;
-    } else {
+  // const handleLogin = (email, password) => {
+  //   const user = users.find(user => user.email === email && user.password === password);
+  //   if (user) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   };
+  // };  
+
+  const handleLogin = async (email, password) => {
+    try {
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      if (response.ok) {
+        const { token } = await response.json();
+        localStorage.setItem('token', token);
+        setRenderLogout(true);
+        return true;
+      } else {
+        alert('Invalid email or password');
+        return false;
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+      alert('An error occurred. Please try again.');
       return false;
-    };
+    }
   };  
 
   const toggleLogout = () => {
