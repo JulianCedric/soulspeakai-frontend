@@ -55,9 +55,28 @@ const App = () => {
   const year = date.getFullYear();
   const formattedDate = `${monthNames[monthIndex]} ${day}, ${year}`;
 
-  const handleSignup = (email, password, firstName, lastName) => {
-    setUsers([...users, { email, password, firstName, lastName }]);
-  };
+  // const handleSignup = (email, password, firstName, lastName) => {
+  //   setUsers([...users, { email, password, firstName, lastName }]);
+  // };
+
+  const handleSignup = async (email, password, firstName, lastName) => {
+    const response = await fetch('http://localhost:3000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: { email, password, first_name: firstName, last_name: lastName },
+      }),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Signup successful', data);
+      // Update frontend state as needed based on response
+    } else {
+      console.error('Signup failed');
+    }
+  };  
 
   const handleLogin = (email, password) => {
     const user = users.find(user => user.email === email && user.password === password);
