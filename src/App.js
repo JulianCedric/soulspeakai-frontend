@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
@@ -58,6 +58,28 @@ const App = () => {
   // const handleSignup = (email, password, firstName, lastName) => {
   //   setUsers([...users, { email, password, firstName, lastName }]);
   // };
+
+  useEffect(() => {
+    getPrayerSessions();
+  }, []);
+
+  const getPrayerSessions = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/prayer_sessions', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setPrayerSessions(data);
+      } else {
+        console.error('Failed to retrieve prayer sessions');
+      }
+    } catch (error) {
+      console.error('Failed to retrieve prayer sessions:', error);
+    }
+  };
 
   const handleSignup = async (email, password, firstName, lastName) => {
     const response = await fetch('http://localhost:3000/signup', {
@@ -145,15 +167,39 @@ const App = () => {
     setNewPrayerSession({ ...newPrayerSession, task_status: status });
   };
 
-  const handleTaskStatusChange = (id) => {
+//   const handleTaskStatusChange = (id) => {
+//     const updatedSessions = prayerSessions.map(session => {
+//       if (session.id === id) {
+//         const newStatus = session.task_status === 'Incomplete' ? 'Complete' : 'Incomplete';
+//         return { ...session, task_status: newStatus };
+//       }
+//       return session;
+//     });
+//     setPrayerSessions(updatedSessions);
+// };
+
+const handleTaskStatusChange = async (id) => {
+  const session = prayerSessions.find(session => session.id === id);
+  const newStatus = session.task_status === 'Incomplete' ? 'Complete' : 'Incomplete';
+  const response = await fetch(`http://localhost:3000/prayer_sessions/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({prayer_session: {task_status: newStatus}}),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    console.log('data', data);
     const updatedSessions = prayerSessions.map(session => {
       if (session.id === id) {
-        const newStatus = session.task_status === 'Incomplete' ? 'Complete' : 'Incomplete';
-        return { ...session, task_status: newStatus };
+        return data;
       }
       return session;
     });
     setPrayerSessions(updatedSessions);
+  };
 };
 
   // const handleCompletePrayerSession = () => {
@@ -163,13 +209,11 @@ const App = () => {
 
   const handleCompletePrayerSession = async () => {
     console.log('newPrayerSession', newPrayerSession);
-    console.log(localStorage.getItem('token'));
   
     const response = await fetch('http://localhost:3000/prayer_sessions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        // 'Authorization': localStorage.getItem('token'),
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({prayer_session: newPrayerSession}),
@@ -183,9 +227,22 @@ const App = () => {
     }
 };  
 
-  const handleDeleteSession = (id) => {
-    const updatedSessions = prayerSessions.filter(session => session.id !== id);
-    setPrayerSessions(updatedSessions);
+  // const handleDeleteSession = (id) => {
+  //   const updatedSessions = prayerSessions.filter(session => session.id !== id);
+  //   setPrayerSessions(updatedSessions);
+  // };
+
+  const handleDeleteSession = async (id) => {
+    const response = await fetch(`http://localhost:3000/prayer_sessions/${id}`, {
+      method: 'DELETE',
+      headers: { 
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    if (response.ok) {
+      const updatedSessions = prayerSessions.filter(session => session.id !== id);
+      setPrayerSessions(updatedSessions);
+    }
   };
 
   return (
