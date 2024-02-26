@@ -77,15 +77,6 @@ const App = () => {
     }
   };  
 
-  // const handleLogin = (email, password) => {
-  //   const user = users.find(user => user.email === email && user.password === password);
-  //   if (user) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   };
-  // };  
-
   const handleLogin = async (email, password) => {
     try {
       const response = await fetch('http://localhost:3000/login', {
@@ -93,10 +84,7 @@ const App = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+        body: JSON.stringify({user: { email, password }}),
       });
       if (response.ok) {
         const { token } = await response.json();
@@ -175,10 +163,13 @@ const App = () => {
 
   const handleCompletePrayerSession = async () => {
     console.log('newPrayerSession', newPrayerSession);
+    console.log(localStorage.getItem('token'));
   
     const response = await fetch('http://localhost:3000/prayer_sessions', {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        // 'Authorization': localStorage.getItem('token'),
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({prayer_session: newPrayerSession}),
