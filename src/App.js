@@ -26,9 +26,9 @@ const PRAYERSESSIONS = [
     prayer: 'Lord, thank You for Your constant presence and guidance in my life. As I prepare for my project tomorrow, I seek Your wisdom and strength to face any challenges that may arise. Help me to trust in Your plans for me, knowing that You work all things together for my good. "For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future." (Jeremiah 29:11) Grant me the courage to step out in faith and not be discouraged, for "I can do all things through Christ who strengthens me." (Philippians 4:13) May Your peace that surpasses all understanding guard my heart and mind, enabling me to focus on the task at hand. "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go." (Joshua 1:9) In Jesus’ name, amen.',
     insight: 'Focus on preparing one section at a time.',
     task: 'Write first draft of only the intro before noon.',
-    taskStatus: 'Incomplete',
+    task_status: 'Incomplete',
     created: 'February 22, 2024',
-    lastVisited: 'February 22, 2024'
+    last_visited: 'February 22, 2024'
   }
 ];
 
@@ -44,9 +44,9 @@ const App = () => {
     prayer: '',
     insight: '',
     task: '',
-    taskStatus: '',
+    task_status: '',
     created: '',
-    lastVisited: ''
+    last_visited: ''
   });
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const date = new Date();
@@ -121,14 +121,14 @@ const App = () => {
   const handleBegin = () => {
     const currentDate = formattedDate;
     // const newId = prayerSessions.length + 1;
-    setNewPrayerSession({ ...newPrayerSession, created: currentDate, lastVisited: currentDate });
+    setNewPrayerSession({ ...newPrayerSession, prayer: 'GPT-3.5-Turbo-generated prayer', created: currentDate, last_visited: currentDate });
   };
 
   const handleLastVisited = (id) => {
     const currentDate = formattedDate;
     const updatedSessions = prayerSessions.map(session => {
       if (session.id === id) {
-        return { ...session, lastVisited: currentDate };
+        return { ...session, last_visited: currentDate };
       }
       return session;
     });
@@ -154,24 +154,44 @@ const App = () => {
   };
 
   const handleTaskStatus = (status) => {
-    setNewPrayerSession({ ...newPrayerSession, taskStatus: status });
+    setNewPrayerSession({ ...newPrayerSession, task_status: status });
   };
 
   const handleTaskStatusChange = (id) => {
     const updatedSessions = prayerSessions.map(session => {
       if (session.id === id) {
-        const newStatus = session.taskStatus === 'Incomplete' ? 'Complete' : 'Incomplete';
-        return { ...session, taskStatus: newStatus };
+        const newStatus = session.task_status === 'Incomplete' ? 'Complete' : 'Incomplete';
+        return { ...session, task_status: newStatus };
       }
       return session;
     });
     setPrayerSessions(updatedSessions);
 };
 
-  const handleCompletePrayerSession = () => {
+  // const handleCompletePrayerSession = () => {
+  //   console.log('newPrayerSession', newPrayerSession);
+  //   setPrayerSessions([...prayerSessions, newPrayerSession])
+  // };
+
+  const handleCompletePrayerSession = async () => {
     console.log('newPrayerSession', newPrayerSession);
-    setPrayerSessions([...prayerSessions, newPrayerSession])
-  };
+  
+    const response = await fetch('http://localhost:3000/prayer_sessions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({prayer_session: newPrayerSession}),
+    });
+  
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Prayer session creation successful', data);
+      setPrayerSessions(prayerSessions => [...prayerSessions, data]);
+    } else {
+      console.error('Prayer session creation failed');
+    }
+};  
 
   const handleDeleteSession = (id) => {
     const updatedSessions = prayerSessions.filter(session => session.id !== id);

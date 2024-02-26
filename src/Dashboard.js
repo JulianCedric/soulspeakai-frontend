@@ -71,8 +71,8 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                       </ModalDescription>
                     </ModalContent>
                     <ul>
-                      {session.taskStatus === 'Incomplete' ? (
-                      <li className='prayer-session-task-status-incomplete'>Task: {session.taskStatus}</li>
+                      {session.task_status === 'Incomplete' ? (
+                      <li className='prayer-session-task-status-incomplete'>Task: {session.task_status}</li>
                       ) : (
                         <li className='prayer-session-task-status-complete'>Task Completed</li>
                       )}
@@ -85,10 +85,10 @@ const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusC
                     </Modal>
                 </Table.Cell>
                 <Table.Cell>{session.created}</Table.Cell>
-                <Table.Cell>{session.lastVisited}</Table.Cell>
-                <Table.Cell>{session.taskStatus}</Table.Cell>
+                <Table.Cell>{session.last_visited}</Table.Cell>
+                <Table.Cell>{session.task_status}</Table.Cell>
                 <Table.Cell>
-                  {session.taskStatus === 'Incomplete' ? (
+                  {session.task_status === 'Incomplete' ? (
                     <Popup content='Mark as Complete' trigger={<Button className='no-border-icon' inverted size='mini' icon='circle outline' onClick={() => handleTaskStatusChange(session.id)}/>}/>
                   ) : (
                     <Popup content='Mark as Incomplete' trigger={<Button className='no-border-icon' inverted size='mini' icon='check' onClick={() => handleTaskStatusChange(session.id)}/>}/>
