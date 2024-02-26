@@ -182,8 +182,7 @@ const App = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({prayer_session: newPrayerSession}),
-    });
-  
+      })
     if (response.ok) {
       const data = await response.json();
       console.log('Prayer session creation successful', data);
