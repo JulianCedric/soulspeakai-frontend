@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const USERS = [
   { 
-    id: 1,
+    // id: 1,
     email: 'user1.one@email.com',
     password: "pass1",
     firstName: "User1",
@@ -20,7 +20,7 @@ const USERS = [
 
 const PRAYERSESSIONS = [
   {
-    id: 1,
+    // id: 1,
     emotion: 'anxious',
     context: 'my presentation tomorrow',
     prayer: 'Lord, thank You for Your constant presence and guidance in my life. As I prepare for my project tomorrow, I seek Your wisdom and strength to face any challenges that may arise. Help me to trust in Your plans for me, knowing that You work all things together for my good. "For I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future." (Jeremiah 29:11) Grant me the courage to step out in faith and not be discouraged, for "I can do all things through Christ who strengthens me." (Philippians 4:13) May Your peace that surpasses all understanding guard my heart and mind, enabling me to focus on the task at hand. "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go." (Joshua 1:9) In Jesus’ name, amen.',
@@ -38,7 +38,7 @@ const App = () => {
   const [renderLogout, setRenderLogout] = useState(false);
   const [prayerSessions, setPrayerSessions] = useState(PRAYERSESSIONS);
   const [newPrayerSession, setNewPrayerSession] = useState({
-    id: null,
+    // id: null,
     emotion: '',
     context: '',
     prayer: '',
@@ -120,8 +120,8 @@ const App = () => {
 
   const handleBegin = () => {
     const currentDate = formattedDate;
-    const newId = prayerSessions.length + 1;
-    setNewPrayerSession({ ...newPrayerSession, id: newId, created: currentDate, lastVisited: currentDate });
+    // const newId = prayerSessions.length + 1;
+    setNewPrayerSession({ ...newPrayerSession, created: currentDate, lastVisited: currentDate });
   };
 
   const handleLastVisited = (id) => {
@@ -170,7 +170,7 @@ const App = () => {
 
   const handleCompletePrayerSession = () => {
     console.log('newPrayerSession', newPrayerSession);
-    setPrayerSessions([...prayerSessions, newPrayerSession]);
+    setPrayerSessions([...prayerSessions, newPrayerSession])
   };
 
   const handleDeleteSession = (id) => {
