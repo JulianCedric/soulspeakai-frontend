@@ -28,6 +28,7 @@ const Step3 = ({ renderStep4, handleInsight }) => {
             style={{ minHeight: 50 }} 
             value={insight} 
             onChange={(e) => setInsight(e.target.value)}
+            className='custom-input textarea'
           />
           <Button 
             content='Save' 

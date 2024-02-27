@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Grid, GridColumn, Search, Header, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, GridColumn, Search } from 'semantic-ui-react';
 import EMOTIONS from './Emotions';
+import './App.css';
 
 const Emotion = ({ emotion, setEmotion }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +38,8 @@ const Emotion = ({ emotion, setEmotion }) => {
 
   return (
     <Grid>
-      <GridColumn width={8}>
+      <GridColumn width={16}>
+        <Form>
         <Search
           loading={isLoading}
           onResultSelect={handleResultSelect}
@@ -45,23 +47,11 @@ const Emotion = ({ emotion, setEmotion }) => {
           results={results}
           value={value}
           minCharacters={1}
+          icon={false}
+          placeholder="emotion"
+          className='custom-search'
         />
-      </GridColumn>
-      <GridColumn width={8}>
-        <Segment>
-          <Header>State</Header>
-          <pre style={{ overflowX: 'auto' }}>
-            {JSON.stringify({ isLoading, value, results }, null, 2)}
-          </pre>
-          <Header>Selected Emotion</Header>
-          <pre style={{ overflowX: 'auto' }}>
-            {emotion}
-          </pre>
-          <Header>Verses</Header>
-          <pre style={{ overflowX: 'auto' }}>
-            {EMOTIONS.find(emotion => emotion.emotion === value)?.verses.join('\n')}
-          </pre>
-        </Segment>
+        </Form>
       </GridColumn>
     </Grid>
   );  

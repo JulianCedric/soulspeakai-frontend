@@ -203,3 +203,37 @@ html, body {
   background: none !important;
   box-shadow: none !important;
 }
+
+.custom-search .prompt, .custom-search input {
+  border: 1px solid rgba(34,36,38,.15); 
+  border-radius: 4px;
+  background-color: rgb(50, 50, 50) !important;
+  color: white !important;
+}
+
+.custom-search .results {
+  border-top-width: 0;
+  background-color: rgb(50, 50, 50) !important;
+}
+
+.custom-input, .custom-input textarea {
+  border: 1px solid rgba(34,36,38,.15);
+  border-radius: 4px;
+  background-color: rgb(50, 50, 50) !important;
+  color: white !important;
+}
+
+.custom-input::placeholder, .custom-input textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.ui.input > input {
+  border: 1px solid rgba(34,36,38,.15);
+  border-radius: 4px;
+  background-color: rgb(50, 50, 50) !important;
+  color: white !important;
+}
+
+.ui.input > input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}

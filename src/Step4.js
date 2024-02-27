@@ -22,14 +22,15 @@ const Step4 = ({ renderStep5, handleTask }) => {
         <p className='steps-style'>Identify your next right move as a task below:</p>
         <br/>
         <Form onSubmit={handleSubmit}>
-          <Input
-            autoFocus
-            placeholder='e.g. a task to complete, a person to contact, etc.'
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-            fluid
-          />
-
+          <div className='custom-input'>
+            <Input
+              autoFocus
+              placeholder='e.g. a task to complete, a person to contact, etc.'
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+              fluid
+            />
+          </div>
           <Button
             content='Save'
             primary
