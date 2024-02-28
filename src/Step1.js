@@ -5,16 +5,17 @@ import Context from './Context';
 import Prayer from './Prayer';
 import './App.css';
 
-const Step1 = ({ updatePrayerSession, renderStep2, handlePrayer }) => {
+const Step1 = ({ updatePrayerSession, renderStep2, handlePrayer, prayer }) => {
   const [emotion, setEmotion] = useState('');
   const [context, setContext] = useState('');
+  const [verses, setVerses] = useState([]);
 
   const handleSubmit = () => {
     if (!emotion.trim() || !context.trim()) {
       alert("Please fill in all fields.");
       return;
     };
-    updatePrayerSession({ emotion, context });
+    updatePrayerSession({ emotion, context, verses });
     renderStep2();
   };
   
@@ -25,11 +26,10 @@ const Step1 = ({ updatePrayerSession, renderStep2, handlePrayer }) => {
       <br/><br/>
       <div className='inline-style'>
         <span>I'm feeling </span>
-        <Emotion emotion={emotion} setEmotion={setEmotion}/>
+        <Emotion emotion={emotion} setEmotion={setEmotion} verses={verses} setVerses={setVerses}/>
         <span> about </span>
         <Context context={context} setContext={setContext}/>
         <span> .</span>
-        {/* <Prayer handlePrayer={handlePrayer}/> */}
         <Button onClick={handleSubmit} primary>Enter</Button>
       </div>
     </Segment>

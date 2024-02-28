@@ -10,7 +10,7 @@ import Step4 from './Step4';
 import Step5 from './Step5';
 import ClosingMessage from './ClosingMessage';
 
-const Home = ({ updatePrayerSession, handleBegin, handlePrayer, handleInsight, handleTask, handleTaskStatus, handleCompletePrayerSession }) => {
+const Home = ({ updatePrayerSession, handleBegin, handlePrayer, prayer, handleInsight, handleTask, handleTaskStatus, handleCompletePrayerSession }) => {
     const [activeStep, setActiveStep] = useState(0);
     const lastStepRef = useRef(null);
 
@@ -72,8 +72,8 @@ const Home = ({ updatePrayerSession, handleBegin, handlePrayer, handleInsight, h
                         </Button>
                     </>
                 )}
-                {activeStep >= 1 && (<Step1 renderStep2={renderStep2} updatePrayerSession={updatePrayerSession} handlePrayer={handlePrayer}/>)}
-                {activeStep >= 2 && (<Step2 renderStep3={renderStep3}/>)}
+                {activeStep >= 1 && (<Step1 renderStep2={renderStep2} updatePrayerSession={updatePrayerSession} handlePrayer={handlePrayer} prayer={prayer}/>)}
+                {activeStep >= 2 && (<Step2 renderStep3={renderStep3} handlePrayer={handlePrayer} prayer={prayer}/>)}
                 {activeStep >= 3 && (<Step3 renderStep4={renderStep4} handleInsight={handleInsight}/>)}
                 {activeStep >= 4 && (<Step4 renderStep5={renderStep5} handleTask={handleTask}/>)}
                 {activeStep >= 5 && (<Step5 renderClosingMessage={renderClosingMessage} handleTaskStatus={handleTaskStatus} handleCompletePrayerSession={handleCompletePrayerSession}/>)}

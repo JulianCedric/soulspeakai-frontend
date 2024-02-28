@@ -17,7 +17,7 @@ import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 import PrayerSession from './PrayerSession';
 
-const Dashboard = ({ users, prayerSessions, handleLastVisited, handleTaskStatusChange, handleDeleteSession }) => {
+const Dashboard = ({ users, prayer, prayerSessions, handleLastVisited, handleTaskStatusChange, handleDeleteSession }) => {
   const [open, setOpen] = useState(false);
 
   return (

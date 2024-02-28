@@ -1,37 +1,31 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'semantic-ui-react';
+// import React, { useState } from 'react';
+// import { Form, Button } from 'semantic-ui-react';
 
-const Prayer = ({ handlePrayer }) => {
-    const [prayer, setPrayer] = useState('');
+// const Prayer = ({ handlePrayer, generatedPrayer }) => {
+//     const handleSubmit = e => {
+//         e.preventDefault();
+//         if (!generatedPrayer.trim()) {
+//             alert("Please fill in this field.");
+//             return;
+//         };
+//         handlePrayer(generatedPrayer);
+//     };
 
-    const handlePrayerChange = (value) => {
-        setPrayer(value);
-    };
+//     return (
+//         <Form onSubmit={handleSubmit}>
+//             <Form.Group>
+//                 <Form.TextArea 
+//                     placeholder='Your generated Prayer will appear here.'
+//                     width={16}
+//                     value={generatedPrayer}
+//                     readOnly
+//                 />
+//             </Form.Group>
+//             <Form.Group>
+//                 <Button primary>Next</Button>
+//             </Form.Group>
+//         </Form>
+//     );
+// };
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        if (!prayer.trim()) {
-            alert("Please fill in this field.");
-            return;
-        };
-        handlePrayer(prayer);
-    };
-
-    return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Group>
-                <Form.Input 
-                    placeholder='GPT-3.5-Turbo-generated prayer will go here'
-                    width={16}
-                    value={prayer}
-                    onChange={e => handlePrayerChange(e.target.value)}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Button primary>Next</Button>
-            </Form.Group>
-        </Form>
-    );
-};
-
-export default Prayer;
+// export default Prayer;
