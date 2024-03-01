@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# SoulSpeakai
+Your very own AI prayer partner.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+SoulSpeakai is an innovative application designed to guide users through emotional and spiritual reflection, transforming strong emotions into constructive actions. By generating personalized prayers and providing a structured framework for reflection, SoulSpeakai acts as your AI-powered companion in your journey of faith and self-discovery.
 
-## Available Scripts
+## Features
+- **5-Step Emotional to Action Journey**: SoulSpeakai guides you through a unique 5-step process that helps turn your strong emotions into positive actions.
+   - **1. Generate Prayer**: Create personalized prayers based on your current feelings and the situation you're facing.
+   - **2. Pray**: Find peace and calm through prayer.
+   - **3. Think**: Gain clarity and insight through reflection, allowing you to capture and contemplate your thoughts.
+   - **4. Decide on Your Next Right Move**: Identify concrete, actionable steps that align with your reflections and insights.
+   - **5. Take Action**: Encourages you to act on your plan, reinforcing the transition from emotion to positive action.
+- **Personalized Prayers and Insights**: Tailor your experience with AI-generated prayers and insights that resonate with your personal journey and emotional state.
+- **Task Management**: Keep track of your actionable steps with a simple task management feature, helping you to focus on taking meaningful action.
 
-In the project directory, you can run:
+## Getting Started
+Follow these steps to run SoulSpeakai on your local machine:
 
-### `npm start`
+1. Clone the repository:
+```
+git clone https://github.com/yourusername/soulspeakai.git
+```
+2. Install dependencies:
+```
+cd soulspeakai
+npm install
+```
+3. Start the application:
+```
+npm start
+```
+The app will be available at http://localhost:3000/.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
+- OpenAI's GPT-3.5 Turbo for generating personalized prayers.
+- React.js for the frontend interface, creating a dynamic and responsive user experience.
+- Ruby on Rails for the backend, managing users, sessions, and data persistence.
+- JWT for authentication, ensuring secure access to user-specific data and experiences.
+- PostgreSQL for database management, storing user data, prayers, insights, and tasks.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Future Enhancements
+- **Speech Synthesis/Audio Playback**: Explore adding voice playback and audio loops for prayers and insights, enhancing the meditative and immersive experience.
+- Integration with more spiritual texts and resources for a broader range of reflective content.
+- Expansion of the task management feature to include reminders and scheduling for actions.
+- Community features allowing users to share and discuss their insights and actions with others.
 
-### `npm test`
+## Contributing
+Contributions to SoulSpeakai are warmly welcomed. Whether you have suggestions for new features, improvements, or want to contribute code, please feel free to make a pull request, open an issue, or email me at julian.pormentilla@gmail.com.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## License
+SoulSpeakai is released under the MIT License. See the LICENSE file for more details.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+- Much gratitude to the OpenAI team for providing the powerful GPT technology that enhances SoulSpeakai's prayer and insight generation.
