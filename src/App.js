@@ -8,6 +8,9 @@ import Login from './Login';
 import EMOTIONS from './Emotions';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+// const BASEURL = 'http://localhost:3000/';
+const BASEURL = 'https://ssai-app-6d2dc2454c79.herokuapp.com/';
+
 const USERS = [
   { 
     // id: 1,
@@ -77,7 +80,7 @@ const App = () => {
 
   const getPrayerSessions = async () => {
     try {
-      const response = await fetch('http://localhost:3000/prayer_sessions', {
+      const response = await fetch(`${BASEURL}prayer_sessions`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
         },
@@ -95,7 +98,7 @@ const App = () => {
 
 
   const handleSignup = async (email, password, firstName, lastName) => {
-    const response = await fetch('http://localhost:3000/signup', {
+    const response = await fetch(`${BASEURL}signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -114,7 +117,7 @@ const App = () => {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch(`${BASEURL}login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -180,7 +183,7 @@ const App = () => {
     console.log('here');
   
     try {
-      const response = await fetch('http://localhost:3000/api/v1/openai/generate', {
+      const response = await fetch(`${BASEURL}api/v1/openai/generate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -243,7 +246,7 @@ const App = () => {
 const handleTaskStatusChange = async (id) => {
   const session = prayerSessions.find(session => session.id === id);
   const newStatus = session.task_status === 'Incomplete' ? 'Complete' : 'Incomplete';
-  const response = await fetch(`http://localhost:3000/prayer_sessions/${id}`, {
+  const response = await fetch(`${BASEURL}prayer_sessions/${id}`, {
     method: 'PATCH',
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -267,7 +270,7 @@ const handleTaskStatusChange = async (id) => {
   const handleCompletePrayerSession = async () => {
     console.log('newPrayerSession', newPrayerSession);
   
-    const response = await fetch('http://localhost:3000/prayer_sessions', {
+    const response = await fetch(`${BASEURL}prayer_sessions`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -285,7 +288,7 @@ const handleTaskStatusChange = async (id) => {
 };  
 
   const handleDeleteSession = async (id) => {
-    const response = await fetch(`http://localhost:3000/prayer_sessions/${id}`, {
+    const response = await fetch(`${BASEURL}prayer_sessions/${id}`, {
       method: 'DELETE',
       headers: { 
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
