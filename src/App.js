@@ -8,8 +8,8 @@ import Login from './Login';
 import EMOTIONS from './Emotions';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-// const BASEURL = 'http://localhost:3000/';
 const BASEURL = 'https://ssai-app-6d2dc2454c79.herokuapp.com/';
+// const BASEURL = 'http://localhost:3000/';
 
 const USERS = [
   { 

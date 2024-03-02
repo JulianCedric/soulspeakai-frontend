@@ -30,7 +30,7 @@ const Signup = ({ handleSignup, toggleLogout }) => {
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 350 }}>
         <h2 className='signup-header'>Sign Up</h2>
-        <p className='signup-subheader'>It's quick and easy.</p>
+        <p className='signup-subheader'>It's quick and easy!</p>
         <Form size='large' onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
