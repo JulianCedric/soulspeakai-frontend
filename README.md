@@ -30,7 +30,7 @@ npm install
 ```
 npm start
 ```
-The app will be available at http://localhost:3000/.
+The app will also soon be available at www.SoulSpeakai.com.
 
 ## Technologies Used
 - OpenAI's GPT-3.5 Turbo for generating personalized prayers.
